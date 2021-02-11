@@ -57,26 +57,25 @@
                 </a>
             </div>
         </div>
-        
-        <div class="row Recommend-wrapper">
+        <div class="row products-wrapper">
             <hr>
             <h1 class="col-md-12">おすすめ商品</h1>
             <div class="col-md-4 item">
-                <p class="recommend-img">
+                <p class="products-img">
                     <img src="{{ asset('img/dummy.jpg')}}">
                 </p>
                 <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
                 <p class="text-right">560円</p>
             </div>
             <div class="col-md-4 item">
-                <p class="recommend-img">
+                <p class="products-img">
                     <img src="{{ asset('img/dummy.jpg')}}">
                 </p>
                 <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
                 <p class="text-right">560円</p>
             </div>
             <div class="col-md-4 item">
-                <p class="recommend-img">
+                <p class="products-img">
                     <img src="{{ asset('img/dummy.jpg')}}">
                 </p>
                 <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
@@ -89,28 +88,28 @@
                 <hr>
                 <h1 class="col-md-12">新商品</h1>
                 <div class="col-md-3 item">
-                    <p class="recommend-img">
+                    <p class="products-img">
                         <img src="{{ asset('img/dummy.jpg')}}">
                     </p>
                     <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
                     <p class="text-right">560円</p>
                 </div>
                 <div class="col-md-3 item">
-                    <p class="recommend-img">
+                    <p class="products-img">
                         <img src="{{ asset('img/dummy.jpg')}}">
                     </p>
                     <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
                     <p class="text-right">560円</p>
                 </div>
                 <div class="col-md-3 item">
-                    <p class="recommend-img">
+                    <p class="products-img">
                         <img src="{{ asset('img/dummy.jpg')}}">
                     </p>
                     <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
                     <p class="text-right">560円</p>
                 </div>
                 <div class="col-md-3 item">
-                    <p class="recommend-img">
+                    <p class="products-img">
                         <img src="{{ asset('img/dummy.jpg')}}">
                     </p>
                     <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
@@ -124,25 +123,25 @@
                 <hr>
                 <h1 class="col-md-12">作品展</h1>
                 <div class="col-md-3 item">
-                    <p class="recommend-img">
+                    <p class="products-img">
                         <img src="{{ asset('img/dummy.jpg')}}">
                     </p>
                     <p>オリジナルバッグを作ってみました！</p>
                 </div>
                 <div class="col-md-3 item">
-                    <p class="recommend-img">
+                    <p class="products-img">
                         <img src="{{ asset('img/dummy.jpg')}}">
                     </p>
                     <p>初めてのポーチ♪</p>
                 </div>
                 <div class="col-md-3 item">
-                    <p class="recommend-img">
+                    <p class="products-img">
                         <img src="{{ asset('img/dummy.jpg')}}">
                     </p>
                     <p>服</p>
                 </div>
                 <div class="col-md-3 item">
-                    <p class="recommend-img">
+                    <p class="products-img">
                         <img src="{{ asset('img/dummy.jpg')}}">
                     </p>
                     <p>バッグポーチズボン</p>
