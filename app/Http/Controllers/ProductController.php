@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +15,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        $categories = Category::all();
+        
+        $major_category_names = Category::pluck('major_category_name')->unique();
+
+        return view('web.index', compact('products', 'categories', 'major_category_names'));
+
     }
 
     /**
@@ -24,7 +31,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -35,7 +44,29 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->name = $request->name;
+        $product->width = $request->width;
+        $product->moq = $request->moq;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->special_feature = $request->special_feature;
+        if($request->restock){
+            $product->restock = true;
+        }else{
+            $product->restock = false;
+        }
+        
+        $product->save();
+        
+        if(isset($request->categories)){
+            foreach($request->categories as $category){
+                $product->categories()->attach($category);
+            }
+        }
+        return view('products.index');
+        
     }
 
     /**
@@ -46,7 +77,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', compact('product'));
     }
 
     /**

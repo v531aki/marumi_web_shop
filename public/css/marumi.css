@@ -1,0 +1,356 @@
+body{
+  background:#f2d1a8;
+}
+
+.top-wrapper{
+  background:rgb(255, 254, 254, 0.8);
+}
+
+main{
+  background:rgb(255, 254, 254, 0.8);
+  
+}
+
+ul {
+  padding-inline-start: 0px;
+}
+
+#nav {
+  list-style: none;
+  display: flex;
+}
+ 
+#nav li {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  background-color: #669b7c;
+}
+ 
+#nav li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+#nav li + li {
+  border-left: 0;
+  border-right: 1px solid #fff;
+}
+
+.info {
+  border: dashed 2px #669b7c;/*破線*/
+  border-radius: 9px;
+  margin-left: 10px;/*はみ出ないように調整*/
+  margin-right: 10px;/*はみ出ないように調整*/
+  padding: 0.5em 0.5em 0.5em 2em;
+}
+
+.info li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+  list-style-type: none;
+}
+
+.feature-wrapper{
+  margin-top:25px;
+}
+
+.Recommend-wrapper{
+  margin-top:25px;
+}
+
+.recommend-img{
+  text-align:center;
+}
+
+.recommend-img img{
+  width:100%;
+}
+
+@font-face {
+  font-family: YuGo;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: YuGo;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+h1 {
+  font-family: YuGo;
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.13px;
+}
+
+h2 {
+  font-family: YuGo;
+  font-size: 22px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+h3 {
+  font-family: YuGo;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.04px;
+}
+
+big {
+  font-family: YuGo;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.08px;
+}
+
+body {
+  font-family: YuGo;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.11px;
+}
+
+caption {
+  font-family: YuGo;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.08px;
+}
+
+label {
+  font-family: YuGo;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #191919;
+}
+
+.samazon-login-input {
+    border-radius: 2px;
+    border: solid 1px #b2b2b2;
+    background-color: #ffffff;
+}
+
+.samazon-check-label {
+    font-family: YuGo;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.samazon-require-input-label {
+    border-radius: 1px;
+    background-color: #e2001b;
+}
+
+.samazon-require-input-label-text {
+    font-family: YuGo;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.samazon-submit-button {
+    font-family: YuGo;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #b2b2b2;
+    color: #ffffff;
+    background-color: #0fbe9f;
+}
+
+.samazon-login-text {
+    font-family: YuGo;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0fbe9f;
+}
+
+/*sidebar*/
+
+.slider-rem{
+  color: #557669;
+  background: rgb(255, 254, 254, 0.8);
+}
+
+.marumi-sidebar-category-label {
+
+    width: 156px;
+    height: 20px;
+    font-family: YuGo;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #191919;
+
+}
+
+@media screen and (max-width: 896px) {
+  .sidebar-wrapper{
+    display:none;
+  }
+}
+@media screen and (min-width: 897px) {
+  .cp_ipselect {
+    display:none;
+  }
+}
+
+@media screen and (max-width: 896px) {
+
+  .cp_ipselect {
+  	overflow: hidden;
+  	width: 33%;
+  	text-align: center;
+  }
+  .cp_ipselect select {
+  	width: 100%;
+  	padding-right: 1em;
+  	cursor: pointer;
+  	text-indent: 0.01px;
+  	text-overflow: ellipsis;
+  	border: none;
+  	outline: none;
+  	background: transparent;
+  	background-image: none;
+  	box-shadow: none;
+  	-webkit-appearance: none;
+  	appearance: none;
+  }
+  .cp_ipselect select::-ms-expand {
+      display: none;
+  }
+  .cp_ipselect.cp_sl01 {
+  	position: relative;
+  	border: 1px solid #bbbbbb;
+  	border-radius: 2px;
+  	background: #ffffff;
+  }
+  .cp_ipselect.cp_sl01::before {
+  	position: absolute;
+  	top: 0.8em;
+  	right: 0.9em;
+  	width: 0;
+  	height: 0;
+  	padding: 0;
+  	content: '';
+  	border-left: 6px solid transparent;
+  	border-right: 6px solid transparent;
+  	border-top: 6px solid #666666;
+  	pointer-events: none;
+  }
+  .cp_ipselect.cp_sl01 select {
+  	padding: 8px 38px 8px 8px;
+  	color: #666666;
+  }
+}
+
+/* cart view*/
+
+.cart-view{
+  background:#ebebeb;
+  border-radius: 9px;
+}
+
+.cart-item{
+  padding:5px;
+}
+
+.cart-view hr{
+  margin:0;
+}
+
+.cart-count-autor{
+  display: table;
+  width: 100%;
+}
+
+.cart-count-innnser{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.cart-img img{
+  width: 100%;
+}
+
+.cart-link{
+  text-align:center;
+}
+
+/*rannking*/
+.ranking-wrapper{
+  margin-top:20px;
+  background:#ebebeb;
+  border-radius: 9px;
+}
+
+.rank{
+  text-align:center;
+  padding:0;
+  font-size:30px;
+  color:#557669;
+  margin:0;
+}
+
+.rank-img{
+  text-align:center;
+}
+
+.rank-img img{
+  width: 100%;
+  margin:0;
+}
+
+.cost{
+  text-align:right;
+}
