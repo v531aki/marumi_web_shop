@@ -1,6 +1,6 @@
 <div class="sidebar-wrapper">
     @foreach ($major_category_names as $major_category_name)
-    <div class="category">
+    <div class="category paling">
         <h2>{{ $major_category_name }}</h2>
         @foreach ($categories as $category)
             @if ($category->major_category_name === $major_category_name)

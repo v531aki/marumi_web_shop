@@ -6,10 +6,10 @@
         @component('components.sidebar', ['categories' => $categories, 'major_category_names' => $major_category_names])
         @endcomponent
     </div>
-    <div class="col-md-7">
+    <div class="main-wrapper col-md-7">
         <div class="info-wrapper">
             <h1>お知らせ</h1>
-            <ul class="info">
+            <ul class="paling">
                 <li><i class="fas fa-info-circle"></i> 自社販売サイト開設しました！ご利用お待ちしております！</li>
                 <li><i class="far fa-lightbulb"></i> コーデュロイ生地などの新商品追加しました！</li>
                 <li><i class="fas fa-ambulance"></i> サイトの不具合を修正しました。ご不便おかけして申し訳ありません！</li>
@@ -18,7 +18,7 @@
         <div class="feature-wrapper">
             <hr>
             <h1>特集一覧</h1>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide main-slider" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -83,7 +83,8 @@
                 <p class="text-right">560円</p>
             </div>
             <a class="text-right" href="#">もっと探す</a>
-            
+        </div>
+        <div class="news-wrapper">
             <div class="row newprogucts-wrapper">
                 <hr>
                 <h1 class="col-md-12">新商品</h1>
@@ -115,6 +116,38 @@
                     <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
                     <p class="text-right">560円</p>
                 </div>
+                <a class="text-right" href="#">もっと探す</a>
+            </div>
+        </div>
+        <div class="news-wrapper">
+            <div class="row newprogucts-wrapper">
+                <hr>
+                <h1 class="col-md-12">作品展</h1>
+                <div class="col-md-3 item">
+                    <p class="recommend-img">
+                        <img src="{{ asset('img/dummy.jpg')}}">
+                    </p>
+                    <p>オリジナルバッグを作ってみました！</p>
+                </div>
+                <div class="col-md-3 item">
+                    <p class="recommend-img">
+                        <img src="{{ asset('img/dummy.jpg')}}">
+                    </p>
+                    <p>初めてのポーチ♪</p>
+                </div>
+                <div class="col-md-3 item">
+                    <p class="recommend-img">
+                        <img src="{{ asset('img/dummy.jpg')}}">
+                    </p>
+                    <p>服</p>
+                </div>
+                <div class="col-md-3 item">
+                    <p class="recommend-img">
+                        <img src="{{ asset('img/dummy.jpg')}}">
+                    </p>
+                    <p>バッグポーチズボン</p>
+                </div>
+                <a class="text-right" href="#">もっとみる</a>
             </div>
         </div>
     </div>

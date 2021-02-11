@@ -28,9 +28,13 @@
         @endcomponent
     </header>
     <div class="row">
-        <main class="py-4 mb-5 col-md-10 offset-md-1">
+        <main class="col-md-10 offset-md-1">
             @yield('content')
         </main>
     </div>
+    <footer>
+        @component('components.footer')
+        @endcomponent
+    </footer>
 </body>
 </html>
