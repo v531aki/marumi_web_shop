@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('web.index');
-});
-
-
-Route::resource('products', 'ProductController');
+Route::get('/', 'WebController@index');
+Route::resource('/products', 'ProductController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -20,7 +20,7 @@ class ProductController extends Controller
         
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('web.index', compact('products', 'categories', 'major_category_names'));
+        return view('products.index', compact('products', 'categories', 'major_category_names'));
 
     }
 
