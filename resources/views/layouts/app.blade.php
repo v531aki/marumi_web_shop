@@ -28,7 +28,7 @@
         @endcomponent
     </header>
     <div class="row">
-        <main class="col-md-10 offset-md-1">
+        <main class="col-md-12 col-lg-10 offset-lg-1">
             @yield('content')
         </main>
     </div>
