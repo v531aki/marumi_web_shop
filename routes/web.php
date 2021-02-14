@@ -12,6 +12,10 @@
 */
 
 Route::get('/', 'WebController@index');
+
+Route::get('users/carts', 'CartController@index')->name('carts.index');
+Route::post('users/carts', 'CartController@store')->name('carts.store');
+
 Route::resource('/products', 'ProductController');
 route::get('/show', 'ProductController@show');
 Auth::routes();

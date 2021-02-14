@@ -54,6 +54,42 @@
                 <p class="col-md-10">50円</p>
             </div>
         </div>
+        <div class="order-form">
+            <form medhod="POST" action="{{route('carts.store')}}">
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value="1">
+                <input type="hidden" name="name" value="ハリネズミ">
+                <input type="hidden" name="price" value="10">
+                <div class="form-group row">
+                    <label for="quantity" class="col-md-2">数量：</label>
+                    <div class="col-sm-10">
+                        <input type="number" id="quantity" name="qty" min="1" value="1" class="form-control w-25">
+                    </div>
+                </div>
+                <input type="hidden" name="weight" value="0">
+                <div class="row">
+                    <div class="col-7">
+                        <button type="submit" class="btn samazon-submit-button w-100">
+                            <i class="fas fa-shopping-cart"></i>
+                            カートに追加
+                        </button>
+                    </div>
+                    <div class="col-5">
+                        @if(true)
+                        <a href="#" class="btn samazon-favorite-button text-favorite w-100">
+                            <i class="fa fa-heart"></i>
+                            お気に入り解除
+                        </a>
+                        @else
+                        <a href="#" class="btn samazon-favorite-button text-favorite w-100">
+                            <i class="fa fa-heart"></i>
+                            お気に入り
+                        </a>
+                        @endif
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="col-md-3">
         @component('components.rightsidebar')

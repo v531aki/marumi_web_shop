@@ -198,7 +198,7 @@ label {
     letter-spacing: normal;
     color: #b2b2b2;
     color: #ffffff;
-    background-color: #0fbe9f;
+    background-color: #669b7c;
 }
 
 .samazon-login-text {
@@ -381,4 +381,8 @@ label {
 
 .products-description div{
   margin-bottom: 10px;
+}
+
+.order-form{
+  margin: 10px;
 }
