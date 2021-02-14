@@ -13,7 +13,7 @@
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                 </form>
+                </form>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -36,8 +36,8 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
@@ -54,7 +54,7 @@
 <div class="row">
     <div class="top-wrapper col-md-10 offset-md-1">
         <ul class="row" id="nav">
-            <li class="col-md-2"><a href="#">記事一覧</a></li>
+            <li class="col-md-2"><a href="{{ url('/products') }}">生地一覧</a></li>
             <li class="col-md-2"><a href="#">掲示板</a></li>
             <li class="col-md-2"><a href="#">まるみ</a></li>
             <li class="col-md-2"></li>
