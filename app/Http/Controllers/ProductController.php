@@ -77,7 +77,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('products.show', compact('product'));
+        $categories = Category::all();
+        
+        $major_category_names = Category::pluck('major_category_name')->unique();
+
+        return view('products.show', compact('products', 'categories', 'major_category_names'));
     }
 
     /**

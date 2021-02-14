@@ -365,3 +365,20 @@ label {
 .cost{
   text-align:right;
 }
+
+.carousel-img{
+  text-align: center;
+}
+
+.carousel-img img{
+  margin:0;
+  width: 100%;
+}
+
+.products-description{
+  margin:10px;
+}
+
+.products-description div{
+  margin-bottom: 10px;
+}

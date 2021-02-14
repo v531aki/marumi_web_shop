@@ -13,6 +13,7 @@
 
 Route::get('/', 'WebController@index');
 Route::resource('/products', 'ProductController');
+route::get('/show', 'ProductController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

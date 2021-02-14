@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12">長さ：100cm 小計：560円</p>
                 </div>
             </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12">長さ：100cm 小計：560円</p>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12">長さ：100cm 小計：560円</p>
                 </div>
             </div>
@@ -66,7 +66,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 rank-cost">560円</p>
                 </div>
             </div>
@@ -81,7 +81,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 rank-cost">560円</p>
                 </div>
             </div>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 text-right">560円</p>
                 </div>
             </div>
@@ -111,7 +111,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 text-right">560円</p>
                 </div>
             </div>
@@ -126,7 +126,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 text-right">560円</p>
                 </div>
             </div>

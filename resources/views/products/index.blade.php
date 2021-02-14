@@ -9,7 +9,7 @@
     <div class="col-md-7">
         <div class="row products-wrapper">
             <hr>
-            <h1 class="col-md-12">商品一覧</h1>
+            @for($i = 0; $i < 16; $i++)
             <div class="col-md-3 item">
                 <p class="products-img">
                     <img src="{{ asset('img/dummy.jpg')}}">
@@ -17,111 +17,7 @@
                 <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
                 <p class="text-right">560円</p>
             </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
+            @endfor
         </div>
     </div>
     <div class="col-md-3">
