@@ -35,6 +35,7 @@
                     </li>
                 @endif
             @else
+                <li class="col-md-2"><a href="#">マイページ</a></li>
                 <li class="col-md-2">
                     <a class="nav-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault();

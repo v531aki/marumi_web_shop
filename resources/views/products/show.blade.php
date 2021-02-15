@@ -6,7 +6,7 @@
         @component('components.sidebar', ['categories' => $categories, 'major_category_names' => $major_category_names])
         @endcomponent
     </div>
-    <div class="col-md-7">
+    <div class="main-wrapper col-md-7">
         <div>
             <h2>商品名：はりねずみとキノコ★綿麻プリント生地５色★</h2>
         </div>

@@ -42,6 +42,7 @@ ul {
 
 .paling {
   border: dashed 2px #669b7c;/*破線*/
+  background:#ebebeb;
   border-radius: 9px;
   margin-left: 10px;/*はみ出ないように調整*/
   margin-right: 10px;/*はみ出ないように調整*/
@@ -306,12 +307,6 @@ label {
 }
 
 /* cart view*/
-
-.cart-view{
-  background:#ebebeb;
-  border-radius: 9px;
-}
-
 .cart-item{
   padding:5px;
 }
@@ -341,8 +336,6 @@ label {
 /*rannking*/
 .ranking-wrapper{
   margin-top:20px;
-  background:#ebebeb;
-  border-radius: 9px;
 }
 
 .rank{

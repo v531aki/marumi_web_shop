@@ -6,7 +6,7 @@
         @component('components.sidebar', ['categories' => $categories, 'major_category_names' => $major_category_names])
         @endcomponent
     </div>
-    <div class="col-md-7">
+    <div class="main-wrapper col-md-7">
         <div class="row products-wrapper">
             <hr>
             @for($i = 0; $i < 16; $i++)

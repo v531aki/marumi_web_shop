@@ -83,7 +83,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($equest $request)
+    public function destroy(request $request)
     {
         $user_shoppingcarts = DB::table('shoppingcart')->where('instance', Auth::user()->id)->get();
 

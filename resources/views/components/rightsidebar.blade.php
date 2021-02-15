@@ -1,7 +1,7 @@
 <div class="rightsidebar-wrapper">
     <div class="cart-view paling">
         <div class="cart-count-autor">
-            <div class"cart-count-inner">
+            <div class="cart-count-inner">
                 <p>商品数：3</p>
             </div>
         </div>
@@ -49,7 +49,7 @@
         </div>
         <hr>
         <div class="cart-link">
-            <a href="#">カートを見る</a>
+            <a href="{{ route('carts.index') }}">カートを見る</a>
         </div>
     </div>
     <div class="ranking-wrapper paling">
