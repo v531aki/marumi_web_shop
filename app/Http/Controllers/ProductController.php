@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -16,7 +17,11 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         if($request->category !== null){
-            $products = Product::where('category_id', $request->category)->paginate(16);
+            $products = DB::table('products')
+                            ->join('product_category', 'products.id', '=', 'product_category.products_id')
+                            ->join('categories', 'categories_id', '=', 'categories.id')
+                            ->where('categories_id', $request->category)
+                            ->paginate(16);
             $category = Category::find($request->category);
         } else {
             $products = Product::paginate(16);
