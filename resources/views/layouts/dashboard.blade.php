@@ -18,13 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/samazon.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/marumi.css')}}" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/3723f06c66.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
-
+    @component('components.dashboard.header')
+    @endcomponent
         <div class="row">
             <div class="col">
                 <main class="py-4 mb-5">

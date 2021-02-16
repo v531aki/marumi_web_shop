@@ -379,3 +379,8 @@ label {
 .order-form{
   margin: 10px;
 }
+
+/* dashboard */
+.navbar-brand img{
+  width:100px;
+}
