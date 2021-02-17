@@ -12,7 +12,15 @@
 */
 
 Route::get('/', 'WebController@index');
+
+Route::get('users/carts', 'CartController@index')->name('carts.index');
+Route::post('users/carts', 'CartController@store')->name('carts.store');
+Route::delete('users/carts', 'CartController@destroy')->name('carts.destroy');
+
 Route::resource('/products', 'ProductController');
+route::get('/show', 'ProductController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/dashboard',  'DashboardController@index');

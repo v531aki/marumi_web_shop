@@ -1,7 +1,7 @@
 <div class="rightsidebar-wrapper">
     <div class="cart-view paling">
         <div class="cart-count-autor">
-            <div class"cart-count-inner">
+            <div class="cart-count-inner">
                 <p>商品数：3</p>
             </div>
         </div>
@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12">長さ：100cm 小計：560円</p>
                 </div>
             </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12">長さ：100cm 小計：560円</p>
                 </div>
             </div>
@@ -42,14 +42,14 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12">長さ：100cm 小計：560円</p>
                 </div>
             </div>
         </div>
         <hr>
         <div class="cart-link">
-            <a href="#">カートを見る</a>
+            <a href="{{ route('carts.index') }}">カートを見る</a>
         </div>
     </div>
     <div class="ranking-wrapper paling">
@@ -66,7 +66,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 rank-cost">560円</p>
                 </div>
             </div>
@@ -81,7 +81,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 rank-cost">560円</p>
                 </div>
             </div>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 text-right">560円</p>
                 </div>
             </div>
@@ -111,7 +111,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 text-right">560円</p>
                 </div>
             </div>
@@ -126,7 +126,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
+                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
                     <p class="col-md-12 text-right">560円</p>
                 </div>
             </div>

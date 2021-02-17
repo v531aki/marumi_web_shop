@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -13,15 +14,24 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        if($request->category !== null){
+            $products = DB::table('products')
+                            ->join('product_category', 'products.id', '=', 'product_category.products_id')
+                            ->join('categories', 'categories_id', '=', 'categories.id')
+                            ->where('categories_id', $request->category)
+                            ->paginate(16);
+            $category = Category::find($request->category);
+        } else {
+            $products = Product::paginate(16);
+            $category = null;
+        }
+
         $categories = Category::all();
-        
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.index', compact('products', 'categories', 'major_category_names'));
-
+        return view('products.index', compact('products','categories', 'category', 'major_category_names'));
     }
 
     /**
@@ -77,7 +87,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('products.show', compact('product'));
+        $categories = Category::all();
+        
+        $major_category_names = Category::pluck('major_category_name')->unique();
+
+        return view('products.show', compact('products', 'categories', 'major_category_names'));
     }
 
     /**

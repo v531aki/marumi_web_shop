@@ -11,7 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://kit.fontawesome.com/1145831153.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,22 +18,21 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/marumi.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/marumi.css')}}" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/3723f06c66.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        @component('components.header')
-        @endcomponent
-    </header>
-    <div class="row">
-        <main class="col-md-12 col-lg-10 offset-lg-1">
-            @yield('content')
-        </main>
+    <div id="app">
+    @component('components.dashboard.header')
+    @endcomponent
+        <div class="row">
+            <div class="col">
+                <main class="py-4 mb-5">
+                    @yield('content')
+                </main>
+            </div>
+        </div>
     </div>
-    <footer>
-        @component('components.footer')
-        @endcomponent
-    </footer>
 </body>
 </html>

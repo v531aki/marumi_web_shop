@@ -1,34 +1,67 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="d-flex justify-content-center">
-    <div class="row w-75">
-        <div class="col-5 offset-1">
-            <img src="{{ asset('img/dummy.jpg')}}" class="w-100 img-fuild">
+<div class="row">
+    <div class="col-md-2">
+        @component('components.sidebar', ['categories' => $categories, 'major_category_names' => $major_category_names])
+        @endcomponent
+    </div>
+    <div class="main-wrapper col-md-7">
+        <div>
+            <h2>商品名：はりねずみとキノコ★綿麻プリント生地５色★</h2>
         </div>
-        <div class="col">
-            <div class="d-flex flex-column">
-                <h1 class="">
-                    {{$product->name}}
-                </h1>
-                <p class="">
-                    {{$product->description}}
-                </p>
-                <hr>
-                <p class="d-flex align-items-end">
-                    ￥{{$product->price}}(税込)
-                </p>
-                <hr>
+        <div class="products-show-slider">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"  data-interval="10000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            @auth
-            <form method="POST" class="m-3 align-items-end">
+        </div>
+        <div class="slider-list">
+            <ol class="row">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="col-md-2 active"><p class="carousel-img"><img src="{{ asset('img/dummy.jpg')}}" alt="1"></p></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1" class="col-md-2"><p class="carousel-img"><img src="{{ asset('img/dummy.jpg')}}" alt=""></p></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2" class="col-md-2"><p class="carousel-img"><img src="{{ asset('img/dummy.jpg')}}" alt=""></p></li>
+            </ol>
+        </div>
+        <div class="products-description">
+            <div class="row">
+                <p class="col-md-2">商品紹介：</p>
+                <p class="col-md-10">
+                    キノコのお庭でハリネズミがおにごっこ♪<br>
+                    厚みは、少し厚めで、バックやインテリア、小物作りに最適です！！<br>
+                    地色は、５色あって、生成り（１枚目の画像）・紺（２枚目の画像）・からし（３枚目の画像）・ピンク（４枚目の画像）・ダークグリーン（５枚目の画像）です。
+                </p>
+            </div>
+            <div class="row">
+                <p class="col-md-2">価格：</p>
+                <p class="col-md-10">50円</p>
+            </div>
+        </div>
+        <div class="order-form">
+            <form medhod="POST" action="{{route('carts.store')}}">
                 {{ csrf_field() }}
-                <input type="hidden" name="id" value="{{$product->id}}">
-                <input type="hidden" name="name" value="{{$product->name}}">
-                <input type="hidden" name="price" value="{{$product->price}}">
+                <input type="hidden" name="id" value="1">
+                <input type="hidden" name="name" value="ハリネズミ">
+                <input type="hidden" name="price" value="10">
                 <div class="form-group row">
-                    <label for="quantity" class="col-sm-2 col-form-label">数量</label>
+                    <label for="quantity" class="col-md-2">数量：</label>
                     <div class="col-sm-10">
                         <input type="number" id="quantity" name="qty" min="1" value="1" class="form-control w-25">
                     </div>
@@ -42,24 +75,26 @@
                         </button>
                     </div>
                     <div class="col-5">
-                        <a href="/products/{{ $product->id }}/favorite" class="btn samazon-favorite-button text-dark w-100">
+                        @if(true)
+                        <a href="#" class="btn samazon-favorite-button text-favorite w-100">
+                            <i class="fa fa-heart"></i>
+                            お気に入り解除
+                        </a>
+                        @else
+                        <a href="#" class="btn samazon-favorite-button text-favorite w-100">
                             <i class="fa fa-heart"></i>
                             お気に入り
                         </a>
+                        @endif
                     </div>
                 </div>
             </form>
-            @endauth
-        </div>
-
-        <div class="offset-1 col-11">
-            <hr class="w-100">
-            <h3 class="float-left">カスタマーレビュー</h3>
-        </div>
-
-        <div class="offset-1 col-10">
-            <!-- レビューを実装する箇所になります -->
         </div>
     </div>
+    <div class="col-md-3">
+        @component('components.rightsidebar')
+        @endcomponent
+    </div>
 </div>
+
 @endsection

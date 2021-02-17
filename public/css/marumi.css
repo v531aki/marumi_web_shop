@@ -42,10 +42,11 @@ ul {
 
 .info {
   border: dashed 2px #669b7c;/*破線*/
+  background:#ebebeb;
   border-radius: 9px;
   margin-left: 10px;/*はみ出ないように調整*/
   margin-right: 10px;/*はみ出ないように調整*/
-  padding: 0.5em 0.5em 0.5em 2em;
+  padding: 2px;
 }
 
 .info li {
@@ -198,7 +199,7 @@ label {
     letter-spacing: normal;
     color: #b2b2b2;
     color: #ffffff;
-    background-color: #0fbe9f;
+    background-color: #669b7c;
 }
 
 .samazon-login-text {
@@ -295,12 +296,6 @@ label {
 }
 
 /* cart view*/
-
-.cart-view{
-  background:#ebebeb;
-  border-radius: 9px;
-}
-
 .cart-item{
   padding:5px;
 }
@@ -330,8 +325,6 @@ label {
 /*rannking*/
 .ranking-wrapper{
   margin-top:20px;
-  background:#ebebeb;
-  border-radius: 9px;
 }
 
 .rank{
@@ -353,4 +346,33 @@ label {
 
 .cost{
   text-align:right;
+<<<<<<< HEAD
+=======
+}
+
+.carousel-img{
+  text-align: center;
+}
+
+.carousel-img img{
+  margin:0;
+  width: 100%;
+}
+
+.products-description{
+  margin:10px;
+}
+
+.products-description div{
+  margin-bottom: 10px;
+}
+
+.order-form{
+  margin: 10px;
+}
+
+/* dashboard */
+.navbar-brand img{
+  width:100px;
+>>>>>>> 8b24b65e92e5c9bb8841a3775a90160838b6fe49
 }
