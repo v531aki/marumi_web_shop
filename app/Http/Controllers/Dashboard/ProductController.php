@@ -8,6 +8,7 @@ use App\ProductCategory;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -37,6 +38,10 @@ class ProductController extends Controller
             $products = Product::paginate(15);
         }
 
+        $categories = DB::table('product_category')
+                            ->select('products_id', 'categories.name as name')
+                            ->join('categories', 'categories_id', '=', 'categories.id')->get();
+
         $sort = [
             '価格の安い順' => 'price asc',
             '価格の高い順' => 'price desc',
@@ -44,7 +49,7 @@ class ProductController extends Controller
             '出品の新しい順' => 'updated_at desc'
         ];
 
-        return view('dashboard.products.index', compact('products', 'sort', 'sorted', 'total_count', 'keyword'));
+        return view('dashboard.products.index', compact('products', 'sort', 'sorted', 'total_count', 'keyword', 'categories'));
     }
 
     /**
@@ -85,19 +90,7 @@ class ProductController extends Controller
             $category->save();
         }
 
-        
         return redirect()->route('dashboard.products.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -106,9 +99,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        $categories = Category::all();
+
+        return view('dashboard.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -118,9 +113,30 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $product->name = $request->input('name');
+        $product->width = $request->input('width');
+        $product->moq = $request->input('moq');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+        $product->stock = $request->input('stock');
+        $product->special_feature = $request->input('special_feature');
+        $product->restock = $request->input('restock');
+        $product->update();
+
+        $category = ProductCategory::where('products_id', "{$product->id}")->select('id')->get();
+
+        ProductCategory::destroy("{$category}");
+
+        foreach($request->category as $category){
+            $category = new ProductCategory();
+            $category->products_id = $product->id;
+            $category->categories_id = $category;
+            $category->save();
+        }
+
+        return redirect()->route('dashboard.products.index');
     }
 
     /**
@@ -129,8 +145,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete;
+
+        return redirect()->route('dashboard.products.index');
     }
 }

@@ -17,10 +17,14 @@ Route::get('users/carts', 'CartController@index')->name('carts.index');
 Route::post('users/carts', 'CartController@store')->name('carts.store');
 Route::delete('users/carts', 'CartController@destroy')->name('carts.destroy');
 
-Route::resource('/products', 'ProductController');
-route::get('/show', 'ProductController@show');
+Route::get('products', 'ProductController@index')->name('products.index');
+Route::get('/show', 'ProductController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard',  'DashboardController@index');
+
+Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function() {
+    Route::resource('products', 'Dashboard\ProductController');
+});

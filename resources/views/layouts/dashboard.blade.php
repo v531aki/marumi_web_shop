@@ -27,6 +27,10 @@
     @component('components.dashboard.header')
     @endcomponent
         <div class="row">
+        <div class="col-3">
+        @component('components.dashboard.sidebar')
+        @endcomponent
+        </div>
             <div class="col">
                 <main class="py-4 mb-5">
                     @yield('content')
