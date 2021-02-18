@@ -15,7 +15,7 @@
         </div>
         <div class="row products-wrapper">
             <hr>
-            @for($i = 0; $i < 16; $i++)
+            @for($i = 0; $i < count($products); $i++)
             <div class="col-md-3 item">
                 <p class="products-img">
                     <img src="{{ asset('img/dummy.jpg')}}">

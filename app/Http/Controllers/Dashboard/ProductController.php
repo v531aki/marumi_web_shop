@@ -60,8 +60,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('dashboard.products.create', compact('categories'));
+        return view('dashboard.products.create', compact('categories', 'major_category_names'));
     }
 
     /**
@@ -81,12 +82,13 @@ class ProductController extends Controller
         $product->stock = $request->input('stock');
         $product->special_feature = $request->input('special_feature');
         $product->restock = $request->input('restock');
+        $product->img = "test";
         $product->save();
         
-        foreach($request->category as $category){
+        for($i = 0; $i < count($request->categories); $i++){
             $category = new ProductCategory();
             $category->products_id = $product->id;
-            $category->categories_id = $category;
+            $category->categories_id = $request->categories[$i];
             $category->save();
         }
 
