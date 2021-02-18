@@ -19,7 +19,7 @@ ul {
   list-style: none;
   display: flex;
 }
- 
+
 #nav li {
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
@@ -28,7 +28,7 @@ ul {
   line-height: 50px;
   background-color: #669b7c;
 }
- 
+
 #nav li a {
   text-decoration: none;
   color: #fff;
@@ -346,8 +346,6 @@ label {
 
 .cost{
   text-align:right;
-<<<<<<< HEAD
-=======
 }
 
 .carousel-img{
@@ -374,5 +372,12 @@ label {
 /* dashboard */
 .navbar-brand img{
   width:100px;
->>>>>>> 8b24b65e92e5c9bb8841a3775a90160838b6fe49
+
+}
+
+.paling{
+  border: dashed 2px #557669;
+  border-radius: 9px;
+  background: #ebebeb;
+  padding: 2px;
 }
