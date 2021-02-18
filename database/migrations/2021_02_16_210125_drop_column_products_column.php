@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropColumnProductsColumn extends Migration
+class DropCategoryIdColumnFromProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -26,7 +26,7 @@ class DropColumnProductsColumn extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->boolean('category_id')->default(false);
+            $table->integer('category_id')->change();
         });
     }
 }

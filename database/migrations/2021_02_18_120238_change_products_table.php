@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddBuyFlagToShoppingcart extends Migration
+class ChangeProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddBuyFlagToShoppingcart extends Migration
      */
     public function up()
     {
-        Schema::table('shoppingcart', function (Blueprint $table) {
-            $table->boolean('buy_flag')->default(false);
+        Schema::table('products', function (Blueprint $table) {
+            $table->integer('special_feature')->unsigned()->nullable()->change();
         });
     }
 
@@ -25,8 +25,8 @@ class AddBuyFlagToShoppingcart extends Migration
      */
     public function down()
     {
-        Schema::table('shoppingcart', function (Blueprint $table) {
-            $table->dropColumn('buy_flag')->default(false);
+        Schema::table('products', function (Blueprint $table) {
+            $table->integer('special_feature')->unsigned()->nullable()->change();
         });
     }
 }

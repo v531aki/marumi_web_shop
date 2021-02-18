@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('price')->unsigned();
             $table->integer('stock')->unsigned();
-            $table->integer('special_feature')->unsigned();
+            $table->integer('special_feature')->unsigned()->nullable();
             $table->boolean('restock')->default(false);
             $table->timestamps();
         });

@@ -26,6 +26,9 @@ class AddCategoryIdProducts extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('category_id')->unsigned();
+            $table->dropColumn('img');
+        });
     }
 }
