@@ -39,9 +39,9 @@
             <label for="restock">再入荷予定</label>
             <input type="date" name="restock" id="restock">
         </div>
-        <div class="sidebar-wrapper">
+        <div>
             @foreach ($major_category_names as $major_category_name)
-            <div class="category paling">
+            <div>
                 <h2>{{ $major_category_name }}</h2>
                 @foreach ($categories as $category)
                     @if ($category->major_category_name === $major_category_name)

@@ -17,12 +17,12 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->integer('width')->unsigned();
-            $table->integer('moq');
+            $table->integer('moq')->unsigned();
             $table->text('description');
             $table->integer('price')->unsigned();
             $table->integer('stock')->unsigned();
             $table->integer('special_feature')->unsigned()->nullable();
-            $table->boolean('restock')->default(false);
+            $table->date('restock')->nullable();
             $table->timestamps();
         });
     }

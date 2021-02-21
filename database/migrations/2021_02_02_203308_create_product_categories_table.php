@@ -17,6 +17,7 @@ class CreateProductCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('products_id');
             $table->integer('categories_id');
+            $table->boolean('buy_flag')->default(false);
             $table->timestamps();
         });
     }
@@ -28,9 +29,6 @@ class CreateProductCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('product_category', function (Blueprint $table){
-            $table->integer('products_id');
-            $table->integer('categories_id');
-        });
+        Schema::dropIfExists('product_category');
     }
 }
