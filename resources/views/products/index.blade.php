@@ -8,22 +8,25 @@
     </div>
     <div class="main-wrapper col-md-7">
         <div class="container">
+            <a href="/">トップ</a>
             @if ($category !== null)
-                <a href="/">トップ</a> > <a href="#">{{ $category->major_category_name }}</a> > {{ $category->name }}
+                > <a href="#">{{ $category->major_category_name }}</a> > {{ $category->name }}
                 <h1>{{ $category->name }}の商品一覧{{$products->count()}}件</h1>
+            @else
+                <h1>商品一覧{{$products_count}}件</h1>
             @endif
         </div>
         <div class="row products-wrapper">
             <hr>
-            @for($i = 0; $i < count($products); $i++)
+            @foreach($products as $product)
             <div class="col-md-3 item">
                 <p class="products-img">
                     <img src="{{ asset('img/dummy.jpg')}}">
                 </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
+                <p>{{ $product->name }}</p>
+                <p class="text-right">{{ $product->price }}円</p>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
     <div class="col-md-3">

@@ -16,6 +16,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        
+        $products_count = Product::count();
         if($request->category !== null){
             $products = Product::join('product_category', 'products.id', '=', 'product_category.products_id')
                             ->join('categories', 'product_category.categories_id', '=', 'categories.id')
@@ -30,7 +32,7 @@ class ProductController extends Controller
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.index', compact('products','categories', 'category', 'major_category_names'));
+        return view('products.index', compact('products','categories', 'category', 'major_category_names', 'products_count'));
     }
 
     /**

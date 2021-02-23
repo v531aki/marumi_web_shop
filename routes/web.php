@@ -27,4 +27,7 @@ Route::get('/dashboard',  'DashboardController@index');
 
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function() {
     Route::resource('products', 'Dashboard\ProductController');
+    Route::get('products/import/csv', 'Dashboard\ProductController@import')->name('products.import');
+    Route::post('products/import/csv', 'Dashboard\ProductController@import_csv');
+    Route::get('categories','Dashboard\CategoryController@export');
 });
