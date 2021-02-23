@@ -19,10 +19,13 @@ class ProductController extends Controller
         
         $products_count = Product::count();
         if($request->category !== null){
+            $products_count = Product::join('product_category', 'products.id', '=', 'product_category.products_id')
+                            ->where('categories_id', $request->category)->count();
+            
             $products = Product::join('product_category', 'products.id', '=', 'product_category.products_id')
-                            ->join('categories', 'product_category.categories_id', '=', 'categories.id')
                             ->where('categories_id', $request->category)
                             ->paginate(16);
+                            
             $category = Category::find($request->category);
         } else {
             $products = Product::paginate(16);

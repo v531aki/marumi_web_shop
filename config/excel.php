@@ -109,7 +109,7 @@ return [
         |
         */
         'heading_row' => [
-            'formatter' => 'origin',
+            'formatter' => 'slug',
         ],
 
         /*

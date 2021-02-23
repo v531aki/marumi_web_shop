@@ -8,10 +8,10 @@
     </div>
     <div class="main-wrapper col-md-7">
         <div class="container">
-            <a href="/">トップ</a>
+            <a href="/">トップ</a> > <a href="/products">一覧</a>
             @if ($category !== null)
-                > <a href="#">{{ $category->major_category_name }}</a> > {{ $category->name }}
-                <h1>{{ $category->name }}の商品一覧{{$products->count()}}件</h1>
+                 > {{ $category->name }}
+                <h1>{{ $category->name }}の商品一覧{{$products_count}}件</h1>
             @else
                 <h1>商品一覧{{$products_count}}件</h1>
             @endif
@@ -23,11 +23,12 @@
                 <p class="products-img">
                     <img src="{{ asset('img/dummy.jpg')}}">
                 </p>
-                <p>{{ $product->name }}</p>
+                <a href="{{route('products.show', $product)}}">{{ $product->name }}</a>
                 <p class="text-right">{{ $product->price }}円</p>
             </div>
             @endforeach
         </div>
+        {{ $products->links() }}
     </div>
     <div class="col-md-3">
         @component('components.rightsidebar')

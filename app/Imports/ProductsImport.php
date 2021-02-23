@@ -36,7 +36,6 @@ class ProductsImport implements ToModel, WithHeadingRow
                 $product_category->save();
             }
         }
-
         return $product;
     }
 }

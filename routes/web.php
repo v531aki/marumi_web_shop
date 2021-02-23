@@ -18,7 +18,7 @@ Route::post('users/carts', 'CartController@store')->name('carts.store');
 Route::delete('users/carts', 'CartController@destroy')->name('carts.destroy');
 
 Route::get('products', 'ProductController@index')->name('products.index');
-Route::get('/show', 'ProductController@show');
+Route::get('/show', 'ProductController@show')->name('products.show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
