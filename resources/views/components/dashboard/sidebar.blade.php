@@ -11,6 +11,9 @@
         </label>
         <label class="samazon-sidebar-category-label">カテゴリ管理</label>
         <label class="samazon-sidebar-category-label">
+            <a href="/dashboard/special_features">特集管理</a>
+        </label>
+        <label class="samazon-sidebar-category-label">
             <a href="/dashboard/products/import/csv">CSV一括登録</a>
         </label>
     </div>

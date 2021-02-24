@@ -52,7 +52,6 @@
             </tr>
         </thead>
         <tbody>
-            <?php $i = 0?>
             @foreach($products as $product)
             <tr>
                 <th scope="row">{{ $product->id }}</td>
