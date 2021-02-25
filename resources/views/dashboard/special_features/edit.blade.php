@@ -6,7 +6,7 @@
 
     <form method="POST" action="/dashboard/special_features/{{ $special_feature->id }}">
         {{ csrf_field() }}
-        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="_method" value="post">
         <div class="form-group">
             <label for="special_feature-name">特集名</label>
             <input type="text" name="name" id="special_feature-name" class="form-control" value="{{ $special_feature->name }}">

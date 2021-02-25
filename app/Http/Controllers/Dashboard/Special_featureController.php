@@ -40,9 +40,16 @@ class Special_featureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Special_feature $special_feature)
     {
-        //
+        $special_feature->name = $request->name;
+        $special_feature->description = $request->description;
+        $special_feature->img = $request->img;
+        $special_feature->start_at = $request->start_at;
+        $special_feature->finished_at = $request->finished_at;
+        $special_feature->update();
+        
+        return redirect()->route('dashboard.special_features');
     }
 
 }

@@ -20,32 +20,28 @@
             <h1>特集一覧</h1>
             <div id="carouselExampleIndicators" class="carousel slide main-slider" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    @for($i = 0; $i < count($special_features); $i++)
+                        @if($i == 0)
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        @else
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}"></li>
+                        @endif
+                    @endfor
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block slider-rem">
-                            <h5>textextexttextextexttextextext</h5>
-                            <p>hogehogehogehogehogehoge</p>
+                    @foreach($special_features as $special_feature)
+                        @if($special_feature === reset($special_features))
+                        <div class="carousel-item active">
+                        @else
+                        <div class="carousel-item">
+                        @endif
+                            <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block slider-rem">
+                                <h5>{{ $special_feature->name }}</h5>
+                                <p>{{ $special_feature->discription }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block slider-rem">
-                            <h5>textextexttextextexttextextext</h5>
-                            <p>hogehogehogehogehogehoge</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block slider-rem">
-                            <h5>textextexttextextexttextextext</h5>
-                            <p>hogehogehogehogehogehoge</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

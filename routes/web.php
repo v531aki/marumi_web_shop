@@ -32,7 +32,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function() {
     Route::get('products/import/csv', 'Dashboard\ProductController@import')->name('products.import');
     Route::post('products/import/csv', 'Dashboard\ProductController@import_csv');
     
-    Route::get('special_features', 'Dashboard\Special_featureController@index');
+    Route::get('special_features', 'Dashboard\Special_featureController@index')->name('special_features');
     Route::get('special_features/{special_feature}/edit', 'Dashboard\Special_featureController@edit');
     Route::post('special_features/{special_feature}', 'Dashboard\Special_featureController@update');
     
