@@ -9,9 +9,9 @@
     <div class="main-wrapper col-md-7">
         <div class="container">
             <a href="/">トップ</a> > <a href="/products">一覧</a>
-            @if ($category !== null)
-                 > {{ $category->name }}
-                <h1>{{ $category->name }}の商品一覧{{$products_count}}件</h1>
+            @if ($sort_type !== null)
+                 > {{ $sort_type }}
+                <h1>{{ $sort_type }}の商品一覧{{$products_count}}件</h1>
             @else
                 <h1>商品一覧{{$products_count}}件</h1>
             @endif

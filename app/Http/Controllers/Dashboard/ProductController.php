@@ -106,8 +106,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
+        $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('dashboard.products.edit', compact('product', 'categories'));
+        return view('dashboard.products.edit', compact('product', 'categories', 'major_category_names'));
     }
 
     /**
@@ -133,10 +134,10 @@ class ProductController extends Controller
 
         ProductCategory::destroy("{$category}");
 
-        foreach($request->category as $category){
+        foreach($request->category_ids as $category_id){
             $category = new ProductCategory();
             $category->products_id = $product->id;
-            $category->categories_id = $category;
+            $category->categories_id = $category_id;
             $category->save();
         }
 
@@ -151,7 +152,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->delete;
+        $product->delete();
 
         return redirect()->route('dashboard.products.index');
     }

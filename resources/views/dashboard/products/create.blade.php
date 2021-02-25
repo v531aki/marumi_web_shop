@@ -40,12 +40,13 @@
             <input type="date" name="restock" id="restock">
         </div>
         <div>
+            <label for="categories">カテゴリー</label>
             @foreach ($major_category_names as $major_category_name)
             <div>
                 <h2>{{ $major_category_name }}</h2>
                 @foreach ($categories as $category)
                     @if ($category->major_category_name === $major_category_name)
-                        <input type="checkbox" name="categories[]" value="{{ $category->id }}">{{ $category->name }}
+                        <input type="checkbox" id="categories" name="categories[]" value="{{ $category->id }}">{{ $category->name }}
                     @endif
                 @endforeach
             </div>

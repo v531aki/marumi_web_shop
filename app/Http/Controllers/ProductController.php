@@ -26,16 +26,22 @@ class ProductController extends Controller
                             ->where('categories_id', $request->category)
                             ->paginate(16);
                             
-            $category = Category::find($request->category);
+            $sort_type = Category::find($request->category);
+            $sort_type = $sort_type->name;
+        } elseif($request->special_feature_id !== null){
+            $products_count = Product::where('special_feature', 'like', '%'.$request->special_feature_id.'%')->count();
+            $products = Product::where('special_feature', 'like', '%'.$request->special_feature_id.'%')->paginate(16);
+
+            $sort_type = $request->special_feature_name;
         } else {
             $products = Product::paginate(16);
-            $category = null;
+            $sort_type = null;
         }
 
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.index', compact('products','categories', 'category', 'major_category_names', 'products_count'));
+        return view('products.index', compact('products','categories', 'sort_type', 'major_category_names', 'products_count'));
     }
 
     /**

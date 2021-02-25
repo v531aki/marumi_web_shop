@@ -29,16 +29,18 @@
                     @endfor
                 </ol>
                 <div class="carousel-inner">
-                    @foreach($special_features as $special_feature)
-                        @if($special_feature === reset($special_features))
+                    @foreach($special_features as $key => $special_feature)
+                        @if($key == 0)
                         <div class="carousel-item active">
                         @else
                         <div class="carousel-item">
                         @endif
-                            <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="First slide">
+                            <a href="{{ route('products.index', ['special_feature_id' => $special_feature->id, 'special_feature_name' => $special_feature->name]) }}">
+                                <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="First slide">
+                            </a>
                             <div class="carousel-caption d-none d-md-block slider-rem">
                                 <h5>{{ $special_feature->name }}</h5>
-                                <p>{{ $special_feature->discription }}</p>
+                                <p>{{ $special_feature->description }}</p>
                             </div>
                         </div>
                     @endforeach

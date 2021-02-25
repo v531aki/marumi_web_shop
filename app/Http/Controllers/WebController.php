@@ -16,10 +16,9 @@ class WebController extends Controller
         
         $major_category_names = Category::pluck('major_category_name')->unique();
         
-        $special_features = Special_feature::whereColumn('start_at', '<=', NOW())
-                                            ->whereColumn('finished_at', '>', NOW())
+        $special_features = Special_feature::where('start_at', '<=', NOW())
+                                            ->where('finished_at', '>', NOW())
                                             ->get();
-
         return view('web.index', compact('products', 'categories', 'major_category_names', 'special_features'));
     }
 }
