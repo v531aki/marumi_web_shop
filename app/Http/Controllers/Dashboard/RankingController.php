@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
-use App\ranking;
+use App\Ranking;
+use App\Product;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class RankingController extends Controller
@@ -14,7 +17,14 @@ class RankingController extends Controller
      */
     public function index()
     {
-        //
+        $rankings = Ranking::select('product_id')->get();
+        
+        for($i = 0; $i < 5; $i++){
+            $product = Product::where('id', '=', $rankings[$i]['product_id'])->get();
+            $products[] = $product[0];
+        }
+
+        return view('dashboard.rankings.index', compact('products'));
     }
 
     /**

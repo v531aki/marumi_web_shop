@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\Ranking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,6 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        
         $products_count = Product::count();
         if($request->category !== null){
             $products_count = Product::join('product_category', 'products.id', '=', 'product_category.products_id')
@@ -38,10 +38,17 @@ class ProductController extends Controller
             $sort_type = null;
         }
 
+        $rankings = Ranking::select('product_id')->get();
+        
+        for($i = 0; $i < 5; $i++){
+            $ranker_product = Product::where('id', '=', $rankings[$i]['product_id'])->get();
+            $ranker_products[] = $ranker_product[0];
+        }
+
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.index', compact('products','categories', 'sort_type', 'major_category_names', 'products_count'));
+        return view('products.index', compact('products','categories', 'sort_type', 'major_category_names', 'products_count', 'ranker_products'));
     }
 
     /**
@@ -52,11 +59,17 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $categories = Category::all();
+        $rankings = Ranking::select('product_id')->get();
         
+        for($i = 0; $i < 5; $i++){
+            $ranker_product = Product::where('id', '=', $rankings[$i]['product_id'])->get();
+            $ranker_products[] = $ranker_product[0];
+        }
+
+        $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.show', compact('products', 'categories', 'major_category_names'));
+        return view('products.show', compact('products', 'categories', 'major_category_names', 'ranker_products'));
     }
 
 }

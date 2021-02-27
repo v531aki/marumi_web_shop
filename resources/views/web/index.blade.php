@@ -149,7 +149,7 @@
         </div>
     </div>
     <div class="col-md-3">
-        @component('components.rightsidebar')
+    @component('components.rightsidebar', ['ranker_products' => $ranker_products])
         @endcomponent
     </div>
 </div>

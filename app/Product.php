@@ -15,4 +15,9 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Special_feature');
     }
+
+    public function rankings()
+    {
+        return $this->belongsTo('App\Ranking');
+    }
 }
