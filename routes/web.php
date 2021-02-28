@@ -41,6 +41,8 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function() {
     Route::post('special_features/{special_feature}', 'Dashboard\Special_featureController@update');
 
     Route::get('ranking', 'Dashboard\RankingController@index')->name('ranking');
+    Route::get('ranking/{ranking}/edit', 'Dashboard\RankingController@edit');
+    Route::post('ranking/{ranking}', 'Dashboard\RankingController@update');
     
     Route::get('categories','Dashboard\CategoryController@export');
 });

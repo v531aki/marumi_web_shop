@@ -8,7 +8,6 @@ use App\ProductCategory;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 use App\Imports\ProductsImport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -40,8 +39,7 @@ class ProductController extends Controller
             $products = Product::paginate(15);
         }
 
-        $categories = DB::table('product_category')
-                            ->select('products_id', 'categories.name as name')
+        $categories = ProductCategory::select('products_id', 'categories.name as name')
                             ->join('categories', 'categories_id', '=', 'categories.id')->get();
 
         $sort = [

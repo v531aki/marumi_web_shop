@@ -15,17 +15,15 @@
             </tr>
         </thead>
         <tbody>
-            {{$i=0}}
-            @foreach($products as $product)
-            {{$i++}}
+            @foreach($rankings as $product)
             <tr>
-                <th scope="row">{{ $i }}位</td>
-                <td>{{ $product->id }}</td>
+                <th scope="row">{{ $product->id }}位</td>
+                <td>{{ $product->product_id }}</td>
                 <td><img src="{{ asset('img/dummy.jpg')}}" class="img-fluid h-10"></td>
                 <td>{{ $product->name }}</td>
 
                 <td>
-                    <a href="/dashboard/products/{{ $product->id }}/edit" class="dashboard-edit-link">編集</a>
+                    <a href="/dashboard/ranking/{{ $product->id }}/edit" class="dashboard-edit-link">編集</a>
                 </td>
             </tr>
             @endforeach

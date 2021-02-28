@@ -10,8 +10,6 @@ use App\Exports\CategoriesExport;
 class CategoryController extends Controller
 {
     public function export(){
-
-	    return Excel::download(new CategoriesExport, 'categories.xlsx'); 
-
+        return Excel::download(new CategoriesExport, 'categories.xlsx'); 
     }
 }
