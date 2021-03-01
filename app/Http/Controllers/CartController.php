@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Ranking;
+use App\Category;
+use App\Product;
+
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +27,13 @@ class CartController extends Controller
             $total += $c->qty * $c->price;
         }
 
-        return view('carts.index', compact('cart', 'total'));
+        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
+                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
+
+        $categories = Category::all();
+        $major_category_names = Category::pluck('major_category_name')->unique();
+
+        return view('carts.index', compact('cart', 'total', 'categories', 'major_category_names', 'rankings'));
     }
 
     /**
@@ -36,14 +46,16 @@ class CartController extends Controller
     {
         Cart::instance(Auth::user()->id)->add(
             [
-                'id' => $request->_token, 
+                'id' => $request->id, 
                 'name' => $request->name, 
                 'qty' => $request->qty, 
                 'price' => $request->price, 
                 'weight' => $request->weight, 
             ] 
         );
-            
+
+        dd($request);
+
         return redirect()->route('products.show', $request->get('id'));
     }
 

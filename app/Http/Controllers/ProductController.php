@@ -22,7 +22,8 @@ class ProductController extends Controller
             $products_count = Product::join('product_category', 'products.id', '=', 'product_category.products_id')
                             ->where('categories_id', $request->category)->count();
             
-            $products = Product::join('product_category', 'products.id', '=', 'product_category.products_id')
+            $products = Product::select('products.id as id', 'name', 'price')
+                            ->join('product_category', 'products.id', '=', 'product_category.products_id')
                             ->where('categories_id', $request->category)
                             ->paginate(16);
                             
@@ -38,17 +39,13 @@ class ProductController extends Controller
             $sort_type = null;
         }
 
-        $rankings = Ranking::select('product_id')->get();
-        
-        for($i = 0; $i < 5; $i++){
-            $ranker_product = Product::where('id', '=', $rankings[$i]['product_id'])->get();
-            $ranker_products[] = $ranker_product[0];
-        }
+        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
+                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
 
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.index', compact('products','categories', 'sort_type', 'major_category_names', 'products_count', 'ranker_products'));
+        return view('products.index', compact('products','categories', 'sort_type', 'major_category_names', 'products_count', 'rankings'));
     }
 
     /**
@@ -59,17 +56,13 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $rankings = Ranking::select('product_id')->get();
-        
-        for($i = 0; $i < 5; $i++){
-            $ranker_product = Product::where('id', '=', $rankings[$i]['product_id'])->get();
-            $ranker_products[] = $ranker_product[0];
-        }
+        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
+                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
 
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.show', compact('products', 'categories', 'major_category_names', 'ranker_products'));
+        return view('products.show', compact('product', 'categories', 'major_category_names', 'rankings'));
     }
 
 }

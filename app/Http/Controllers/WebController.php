@@ -21,13 +21,10 @@ class WebController extends Controller
                                             ->where('finished_at', '>', NOW())
                                             ->get();
         
-        $rankings = Ranking::select('product_id')->get();
-        
-        for($i = 0; $i < 5; $i++){
-            $ranker_product = Product::where('id', '=', $rankings[$i]['product_id'])->get();
-            $ranker_products[] = $ranker_product[0];
-        }
+        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
+                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
+                                    
 
-        return view('web.index', compact('products', 'categories', 'major_category_names', 'special_features', 'ranker_products'));
+        return view('web.index', compact('products', 'categories', 'major_category_names', 'special_features', 'rankings'));
     }
 }

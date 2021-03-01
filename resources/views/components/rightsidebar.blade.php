@@ -56,22 +56,22 @@
         <div class="ranking-title">
             <p>売れ筋ランキング</p>
         </div>
-        @for($i = 0; $i < 5; $i++)
+        @foreach($rankings as $ranking)
         <hr>
             <div class="ranking-item">
                 <div class="col-md-12">
-                    <p class="rank">| {{ $i + 1 }}位 |</p>
+                    <p class="rank">| {{ $ranking->id }}位 |</p>
                     <p class="rank-img">
                         <img src="{{ asset('img/dummy.jpg') }}" alt="写真">
                     </p>
                 </div>
                 <div class="col-md-12">
                     <div class="row">
-                        <p class="col-md-12">品名：{{ $ranker_products[$i]->name }}</p>
-                        <p class="col-md-12 rank-cost">{{ $ranker_products[$i]->price }}円</p>
+                        <p class="col-md-12">品名：{{ $ranking->name }}</p>
+                        <p class="col-md-12 rank-cost">{{ $ranking->price }}円</p>
                     </div>
                 </div>
             </div>
-        @endfor
+        @endforeach
     </div>
 </div>
