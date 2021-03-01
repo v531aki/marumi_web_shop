@@ -6,6 +6,9 @@ use App\Product;
 use App\Category;
 use App\Ranking;
 use App\Special_feature;
+
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -23,8 +26,14 @@ class WebController extends Controller
         
         $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
                             ->join('products', 'rankings.product_id', '=', 'products.id')->get();
-                                    
+        
+        $carts = Cart::instance(Auth::user()->id)->content();
+        $total = 0;
 
-        return view('web.index', compact('products', 'categories', 'major_category_names', 'special_features', 'rankings'));
+        foreach($carts as $c){
+            $total += $c->qty * $c->price;
+        }
+
+        return view('web.index', compact('products', 'categories', 'major_category_names', 'special_features', 'rankings', 'carts', 'total'));
     }
 }

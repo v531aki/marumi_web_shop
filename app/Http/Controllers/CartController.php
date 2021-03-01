@@ -20,10 +20,10 @@ class CartController extends Controller
      */
     public function index()
     {
-        $cart = Cart::instance(Auth::user()->id)->content();
+        $carts = Cart::instance(Auth::user()->id)->content();
         $total = 0;
 
-        foreach($cart as $c){
+        foreach($carts as $c){
             $total += $c->qty * $c->price;
         }
 
@@ -33,7 +33,7 @@ class CartController extends Controller
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('carts.index', compact('cart', 'total', 'categories', 'major_category_names', 'rankings'));
+        return view('carts.index', compact('cart', 'total', 'categories', 'major_category_names', 'rankings', 'carts'));
     }
 
     /**
@@ -53,8 +53,6 @@ class CartController extends Controller
                 'weight' => $request->weight, 
             ] 
         );
-
-        dd($request);
 
         return redirect()->route('products.show', $request->get('id'));
     }
@@ -85,7 +83,7 @@ class CartController extends Controller
         } else {
             Cart::instance(Auth::user()->id)->update($request->input('id'), $request->input('qty'));
         }
-            
+        
         return redirect()->route('carts.index');
     }
 

@@ -29,17 +29,7 @@
     </header>
     <div class="row">
         <main class="col-md-12 col-lg-10 offset-lg-1">
-            <div class="row">
-                <div class="col-md-2">
-                    @component('components.sidebar', ['categories' => $categories, 'major_category_names' => $major_category_names])
-                    @endcomponent
-                </div>
-                @yield('content')
-                <div class="col-md-3">
-                    @component('components.rightsidebar', ['rankings' => $rankings, 'carts' => $carts, 'total' => $total])
-                    @endcomponent
-                </div>
-            </div>
+            @yield('content')
         </main>
     </div>
     <footer>

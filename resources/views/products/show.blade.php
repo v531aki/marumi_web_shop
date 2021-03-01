@@ -52,6 +52,7 @@
         </div>
     </div>
     <div class="order-form">
+        @auth
         <form method="POST" action="{{route('carts.store')}}">
             {{ csrf_field() }}
             <input type="hidden" name="_method" value="POST">
@@ -61,7 +62,7 @@
             <div class="form-group row">
                 <label for="quantity" class="col-md-2">数量：</label>
                 <div class="col-sm-10">
-                    <input type="number" id="quantity" name="qty" min="{{ $product->moq }}" max="{{ $product->stock }}" value="{{ $product->moq }}" class="form-control w-25">
+                    <input type="number" id="quantity" name="qty" min="1" max="{{ $product->stock }}" value="{{ $product->moq }}" class="form-control w-25">
                 </div>
             </div>
             <input type="hidden" name="weight" value="0">
@@ -87,6 +88,7 @@
                 </div>
             </div>
         </form>
+        @endauth
     </div>
 </div>
 @endsection

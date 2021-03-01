@@ -2,10 +2,19 @@
     <div class="cart-view paling">
         <div class="cart-count-autor">
             <div class="cart-count-inner">
-                <p>商品数：3</p>
+            @if(count($carts) != 0)
+                <p>商品数：{{ count($carts) }}種 合計：{{ $total }}円</p>
+            @else
+                <p>追加済みの商品はありません。</p>
+            @endif
             </div>
         </div>
+        <?php $i=0 ?>
+        <?php $total=0 ?>
+        @foreach($carts as $product)
         <hr>
+        <?php $i++ ?>
+        @if($i <= 3) 
         <div class="row cart-item">
             <div class="col-md-3">
                 <p class="cart-img">
@@ -14,39 +23,14 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
-                    <p class="col-md-12">長さ：100cm 小計：560円</p>
+                    <p class="col-md-12">品名：{{ $product->name }}</p>
+                    <p class="col-md-12">長さ：{{ $product->qty * 10 }}cm 小計：{{ $product->price * $product->qty }}円</p>
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="row cart-item">
-            <div class="col-md-3">
-                <p class="cart-img">
-                    <img src="{{ asset('img/dummy.jpg') }}" alt="写真">
-                </p>
-            </div>
-            <div class="col-md-9">
-                <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
-                    <p class="col-md-12">長さ：100cm 小計：560円</p>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="row cart-item">
-            <div class="col-md-3">
-                <p class="cart-img">
-                    <img src="{{ asset('img/dummy.jpg') }}" alt="写真">
-                </p>
-            </div>
-            <div class="col-md-9">
-                <div class="row">
-                    <p class="col-md-12">品名：はりねずみとキノコ★綿麻プリント生地５色★</p>
-                    <p class="col-md-12">長さ：100cm 小計：560円</p>
-                </div>
-            </div>
-        </div>
+        @endif
+        @endforeach
+
         <hr>
         <div class="cart-link">
             <a href="{{ route('carts.index') }}">カートを見る</a>

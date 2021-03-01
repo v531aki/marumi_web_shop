@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\Ranking;
+
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -45,7 +48,14 @@ class ProductController extends Controller
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.index', compact('products','categories', 'sort_type', 'major_category_names', 'products_count', 'rankings'));
+        $carts = Cart::instance(Auth::user()->id)->content();
+        $total = 0;
+
+        foreach($carts as $c){
+            $total += $c->qty * $c->price;
+        }
+
+        return view('products.index', compact('products','categories', 'sort_type', 'major_category_names', 'products_count', 'rankings', 'carts', 'total'));
     }
 
     /**
@@ -62,7 +72,14 @@ class ProductController extends Controller
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('products.show', compact('product', 'categories', 'major_category_names', 'rankings'));
+        $carts = Cart::instance(Auth::user()->id)->content();
+        $total = 0;
+
+        foreach($carts as $c){
+            $total += $c->qty * $c->price;
+        }
+
+        return view('products.show', compact('product', 'categories', 'major_category_names', 'rankings', 'carts', 'total'));
     }
 
 }
