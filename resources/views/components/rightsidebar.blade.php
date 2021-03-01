@@ -46,12 +46,16 @@
                 <div class="col-md-12">
                     <p class="rank">| {{ $ranking->id }}位 |</p>
                     <p class="rank-img">
-                        <img src="{{ asset('img/dummy.jpg') }}" alt="写真">
+                        <a href="/products/show/{{ $ranking->product_id }}">
+                            <img src="{{ asset('img/dummy.jpg') }}" alt="写真">
+                        </a>
                     </p>
                 </div>
                 <div class="col-md-12">
                     <div class="row">
-                        <p class="col-md-12">品名：{{ $ranking->name }}</p>
+                        <a href="/products/show/{{ $ranking->product_id }}">
+                            <p class="col-md-12">品名：{{ $ranking->name }}</p>
+                        </a>
                         <p class="col-md-12 rank-cost">{{ $ranking->price }}円</p>
                     </div>
                 </div>
