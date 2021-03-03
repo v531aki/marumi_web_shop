@@ -5,7 +5,7 @@
 <div class="dashboard-container">
     <h1>商品登録</h1>
     
-    <form method="POST" action="/dashboard/products">
+    <form method="POST" action="/dashboard/products" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-inline row">
             <label for="product_name">商品名</label>
@@ -16,8 +16,13 @@
             <input type="text" name="width" id="width">
         </div>
         <div class="form-inline row">
-            <label for="moq">1に対する長さ</label>
+            <label for="moq">最小購入長さ</label>
             <input type="text" name="moq" id="moq">
+        </div>
+        <div class="form-inline mt-4 mb-4 row">
+            <label for="product-image" class="col-2 d-flex justify-content-start">画像</label>
+            <img src="#" id="product-image-preview">
+            <input type="file" name="image" id="product-image">
         </div>
         <div class="form-inline row">
             <label for="description">説明</label>
@@ -57,6 +62,18 @@
         </div>
     </form>
 </div>
+
+<script type="text/javascript">
+    $("#product-image").change(function() {
+        if (this.files && this.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $("#product-image-preview").attr("src", e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+</script>
 
 @endsection
 

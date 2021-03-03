@@ -48,11 +48,16 @@ class ProductController extends Controller
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        $carts = Cart::instance(Auth::user()->id)->content();
-        $total = 0;
+        if( Auth::check() ){
+            $carts = Cart::instance(Auth::user()->id)->content();
+            $total = 0;
 
-        foreach($carts as $c){
-            $total += $c->qty * $c->price;
+            foreach($carts as $c){
+                $total += $c->qty * $c->price;
+            }
+        }else{
+            $carts = [];
+            $total = 0;
         }
 
         return view('products.index', compact('products','categories', 'sort_type', 'major_category_names', 'products_count', 'rankings', 'carts', 'total'));
@@ -72,11 +77,16 @@ class ProductController extends Controller
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        $carts = Cart::instance(Auth::user()->id)->content();
-        $total = 0;
+        if( Auth::check() ){
+            $carts = Cart::instance(Auth::user()->id)->content();
+            $total = 0;
 
-        foreach($carts as $c){
-            $total += $c->qty * $c->price;
+            foreach($carts as $c){
+                $total += $c->qty * $c->price;
+            }
+        }else{
+            $carts = [];
+            $total = 0;
         }
 
         return view('products.show', compact('product', 'categories', 'major_category_names', 'rankings', 'carts', 'total'));

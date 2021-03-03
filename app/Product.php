@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Ranking');
     }
+
+    public function product_imgs()
+    {
+        return $this->belongsTo('App\Product_img');
+    }
 }

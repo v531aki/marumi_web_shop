@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Product;
 use App\Category;
 use App\ProductCategory;
+use App\Product_img;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Imports\ProductsImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -127,10 +129,30 @@ class ProductController extends Controller
         $product->special_feature = $request->input('special_feature');
         $product->restock = $request->input('restock');
         $product->update();
+        
+        // $image = Product_img::where('products_id', $product->id)->select('id')->get();
+        // Product_img::destroy($image);
 
-        $category = ProductCategory::where('products_id', "{$product->id}")->select('id')->get();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image')->store('public/products');
+            
+            $product_img = new Product_img();
+            $product_img->product_id = $product->id;
+            $product_img->img_name = basename($image);
 
-        ProductCategory::destroy("{$category}");
+            $product_img->save();
+        }
+
+        $filename = $request->file('image')->getClientOriginalName();
+
+        $path = $request->file('image')->storeAs('public/products', $filename);
+
+        $contents = Storage::get('public/products/'.$filename); //ファイルを読み取る
+        Storage::disk('s3')->put($filename, $contents, 'public/products'); // Ｓ３にアップ
+
+        $category = ProductCategory::where('products_id', $product->id)->select('id')->get();
+
+        ProductCategory::destroy($category);
 
         foreach($request->category_ids as $category_id){
             $category = new ProductCategory();
