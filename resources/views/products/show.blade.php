@@ -8,15 +8,15 @@
     <div class="products-show-slider">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"  data-interval="10000">
             <div class="carousel-inner">
+                @for($i = 0; $i < count($img); $i++)
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="First slide">
+                    @if($i == 0)
+                    <img class="d-block w-100" src="{{ $img[$i] }}" alt="First slide">
+                    @else
+                    <img class="d-block w-100" src="{{ $img[$i] }}" alt="First slide">
+                    @endif
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="Third slide">
-                </div>
+                @endforeach
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,9 +30,15 @@
     </div>
     <div class="slider-list">
         <ol class="row">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="col-md-2 active"><p class="carousel-img"><img src="{{ asset('img/dummy.jpg')}}" alt="1"></p></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1" class="col-md-2"><p class="carousel-img"><img src="{{ asset('img/dummy.jpg')}}" alt=""></p></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2" class="col-md-2"><p class="carousel-img"><img src="{{ asset('img/dummy.jpg')}}" alt=""></p></li>
+            @for($i = 0; $i < count($img); $i++)
+                @if($i == 0)
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="col-md-2 active">
+                @else
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="col-md-2">
+                @endif
+                    <p class="carousel-img"><img src="{{ $img[$i] }}" alt="画像"></p>
+                </li>
+            @endforeach
         </ol>
     </div>
     <div class="products-description">

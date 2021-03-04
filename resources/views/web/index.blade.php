@@ -31,7 +31,7 @@
                     <div class="carousel-item">
                     @endif
                         <a href="{{ route('products.index', ['special_feature_id' => $special_feature->id, 'special_feature_name' => $special_feature->name]) }}">
-                            <img class="d-block w-100" src="{{ asset('img/dummy.jpg')}}" alt="First slide">
+                            <img class="d-block w-100" src="https://marumiimgbucket.s3-ap-northeast-1.amazonaws.com/GdVFaplIDMIwC5lUv6wP9npJFcvBaWjmemH61cXe.jpg" alt="First slide">
                         </a>
                         <div class="carousel-caption d-none d-md-block slider-rem">
                             <h5>{{ $special_feature->name }}</h5>

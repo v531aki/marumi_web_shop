@@ -17,7 +17,7 @@
         <div class="col-md-3 item">
             <p class="products-img">
                 <a href="products/show/{{ $product->id }}">
-                    <img src="{{ asset('img/dummy.jpg')}}">
+                    <img src="{{ $product->img_name }}">
                 </a>
             </p>
             <a href="products/show/{{ $product->id }}">{{ $product->name }}</a>

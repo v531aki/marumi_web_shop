@@ -62,7 +62,12 @@
                 <h2>{{ $major_category_name }}</h2>
                 @foreach ($categories as $category)
                     @if ($category->major_category_name === $major_category_name)
-                        <input type="checkbox" id="categories" name="category_ids[]" value="{{ $category->id }}">{{ $category->name }}
+                        @if (in_array($category->id, $category_id))
+                            <input type="checkbox" id="categories" name="category_ids[]" value="{{ $category->id }}" checked>
+                        @else
+                            <input type="checkbox" id="categories" name="category_ids[]" value="{{ $category->id }}">
+                        @endif
+                        {{ $category->name }}
                     @endif
                 @endforeach
             </div>

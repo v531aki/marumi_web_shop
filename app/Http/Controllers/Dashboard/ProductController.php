@@ -105,10 +105,15 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $categories_id = ProductCategory::where('products_id', $product->id)->select('categories_id')->get()->toArray();
+        foreach($categories_id as $categories){
+            $category_id[] = $categories['categories_id'];
+        }
+
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('dashboard.products.edit', compact('product', 'categories', 'major_category_names'));
+        return view('dashboard.products.edit', compact('product', 'categories', 'major_category_names', 'category_id'));
     }
 
     /**
@@ -134,21 +139,17 @@ class ProductController extends Controller
         // Product_img::destroy($image);
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image')->store('public/products');
-            
+            $image = $request->file('image');
+
+            $path = Storage::disk('s3')->put('/', $image, 'public'); // Ｓ３にアップ
+
             $product_img = new Product_img();
             $product_img->product_id = $product->id;
-            $product_img->img_name = basename($image);
+            $product_img->img_name = Storage::disk('s3')->url($path);
 
             $product_img->save();
         }
-
-        $filename = $request->file('image')->getClientOriginalName();
-
-        $path = $request->file('image')->storeAs('public/products', $filename);
-
-        $contents = Storage::get('public/products/'.$filename); //ファイルを読み取る
-        Storage::disk('s3')->put($filename, $contents, 'public/products'); // Ｓ３にアップ
+        
 
         $category = ProductCategory::where('products_id', $product->id)->select('id')->get();
 

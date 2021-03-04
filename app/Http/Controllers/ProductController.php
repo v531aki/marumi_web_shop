@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\Ranking;
+use APP\Product_img;
 
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -25,7 +26,8 @@ class ProductController extends Controller
             $products_count = Product::join('product_category', 'products.id', '=', 'product_category.products_id')
                             ->where('categories_id', $request->category)->count();
             
-            $products = Product::select('products.id as id', 'name', 'price')
+            $products = Product::select('products.id as id', 'name', 'price', 'img_name')
+                            ->join('product_imgs', 'products.id', 'product_imgs.product_id')
                             ->join('product_category', 'products.id', '=', 'product_category.products_id')
                             ->where('categories_id', $request->category)
                             ->paginate(16);
@@ -34,11 +36,15 @@ class ProductController extends Controller
             $sort_type = $sort_type->name;
         } elseif($request->special_feature_id !== null){
             $products_count = Product::where('special_feature', 'like', '%'.$request->special_feature_id.'%')->count();
-            $products = Product::where('special_feature', 'like', '%'.$request->special_feature_id.'%')->paginate(16);
+            $products = Product::select('products.id as id', 'name', 'price', 'img_name')
+                                ->join('product_imgs', 'products.id', 'product_imgs.product_id')
+                                ->where('special_feature', 'like', '%'.$request->special_feature_id.'%')->paginate(16);
 
             $sort_type = $request->special_feature_name;
         } else {
-            $products = Product::paginate(16);
+            $products = Product::select('products.id as id', 'name', 'price', 'img_name')
+                                ->join('product_imgs', 'products.id', 'product_imgs.product_id')
+                                ->paginate(16);
             $sort_type = null;
         }
 
@@ -74,6 +80,12 @@ class ProductController extends Controller
         $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
                             ->join('products', 'rankings.product_id', '=', 'products.id')->get();
 
+        $img_links = Product_img::select('img_name')->where('product_id', $product->id)->get()->toArray();
+
+        foreach($img_links as $img_link){
+            $img[] = $img_link['img_name'];
+        }
+
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
@@ -89,7 +101,7 @@ class ProductController extends Controller
             $total = 0;
         }
 
-        return view('products.show', compact('product', 'categories', 'major_category_names', 'rankings', 'carts', 'total'));
+        return view('products.show', compact('product', 'categories', 'major_category_names', 'rankings', 'carts', 'total', 'img'));
     }
 
 }
