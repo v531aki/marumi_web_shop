@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="w-50">
+<div class="col-9">
     <h1>商品登録</h1>
 
     <hr>
@@ -12,6 +12,17 @@
         <div class="form-inline mt-4 mb-4 row">
             <label for="product-name" class="col-2 d-flex justify-content-start">商品名</label>
             <input type="text" name="name" id="product-name" class="form-control col-8" value="{{ $product->name }}">
+        </div>
+        <div class="form-inline mt-4 mb-4 row">
+            <label for="top_img" class="col-2 d-flex justify-content-start">トップ画像</label>
+            <div class="row">
+                @foreach($imgs as $img)
+                <div class="col-3">
+                    <input type="radio" name="top_img" id="top_img" class="form-control" value="{{ $img }}">
+                    <div class="products-img"><p class="center"><img src="{{ $img }}" alt="画像"></p></div>
+                </div>
+                @endforeach
+            </div>
         </div>
         <div class="form-inline mt-4 mb-4 row">
             <label for="width" class="col-2 d-flex justify-content-start">巾</label>

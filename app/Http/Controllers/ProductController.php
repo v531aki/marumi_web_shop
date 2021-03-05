@@ -26,8 +26,7 @@ class ProductController extends Controller
             $products_count = Product::join('product_category', 'products.id', '=', 'product_category.products_id')
                             ->where('categories_id', $request->category)->count();
             
-            $products = Product::select('products.id as id', 'name', 'price', 'img_name')
-                            ->join('product_imgs', 'products.id', 'product_imgs.product_id')
+            $products = Product::select('products.id as id', 'name', 'price', 'top_img')
                             ->join('product_category', 'products.id', '=', 'product_category.products_id')
                             ->where('categories_id', $request->category)
                             ->paginate(16);
@@ -36,14 +35,13 @@ class ProductController extends Controller
             $sort_type = $sort_type->name;
         } elseif($request->special_feature_id !== null){
             $products_count = Product::where('special_feature', 'like', '%'.$request->special_feature_id.'%')->count();
-            $products = Product::select('products.id as id', 'name', 'price', 'img_name')
-                                ->join('product_imgs', 'products.id', 'product_imgs.product_id')
+            $products = Product::select('products.id as id', 'name', 'price', 'top_img')
                                 ->where('special_feature', 'like', '%'.$request->special_feature_id.'%')->paginate(16);
 
             $sort_type = $request->special_feature_name;
         } else {
-            $products = Product::select('products.id as id', 'name', 'price', 'img_name')
-                                ->join('product_imgs', 'products.id', 'product_imgs.product_id')
+            $products_count = Product::all()->count();
+            $products = Product::select('products.id as id', 'name', 'price', 'top_img')
                                 ->paginate(16);
             $sort_type = null;
         }
@@ -80,11 +78,8 @@ class ProductController extends Controller
         $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
                             ->join('products', 'rankings.product_id', '=', 'products.id')->get();
 
-        $img_links = Product_img::select('img_name')->where('product_id', $product->id)->get()->toArray();
-
-        foreach($img_links as $img_link){
-            $img[] = $img_link['img_name'];
-        }
+        $img = Product_img::select('img_name')->where('product_id', $product->id)->get()->toArray();
+        foreach($img as $i){$imgs[] = $i['img_name'];}
 
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();

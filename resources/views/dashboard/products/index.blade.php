@@ -55,7 +55,7 @@
             @foreach($products as $product)
             <tr>
                 <td scope="row">{{ $product->id }}</td>
-                <td><img src="{{ asset('img/dummy.jpg')}}" class="img-fluid h-10"></td>
+                <td><img src="{{ $product->top_img }}" class="img-fluid h-10"></td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->description }}</td>
                 <td>{{ $product->width }}</td>

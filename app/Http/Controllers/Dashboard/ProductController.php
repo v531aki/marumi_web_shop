@@ -110,10 +110,13 @@ class ProductController extends Controller
             $category_id[] = $categories['categories_id'];
         }
 
+        $img = Product_img::select('img_name')->where('product_id', $product->id)->get()->toArray();
+        foreach($img as $i){$imgs[] = $i['img_name'];}
+        
         $categories = Category::all();
         $major_category_names = Category::pluck('major_category_name')->unique();
 
-        return view('dashboard.products.edit', compact('product', 'categories', 'major_category_names', 'category_id'));
+        return view('dashboard.products.edit', compact('product', 'categories', 'major_category_names', 'category_id', 'imgs'));
     }
 
     /**
@@ -126,6 +129,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $product->name = $request->input('name');
+        $product->top_img = $request->input('top_img');
         $product->width = $request->input('width');
         $product->moq = $request->input('moq');
         $product->description = $request->input('description');
@@ -151,9 +155,7 @@ class ProductController extends Controller
         }
         
 
-        $category = ProductCategory::where('products_id', $product->id)->select('id')->get();
-
-        ProductCategory::destroy($category);
+        ProductCategory::where('products_id', $product->id)->select('id')->delete();
 
         foreach($request->category_ids as $category_id){
             $category = new ProductCategory();

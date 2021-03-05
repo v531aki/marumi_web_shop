@@ -17,7 +17,7 @@
         <div class="col-md-3 item">
             <p class="products-img">
                 <a href="products/show/{{ $product->id }}">
-                    <img src="{{ $product->img_name }}">
+                    <img src="{{ $product->top_img }}">
                 </a>
             </p>
             <a href="products/show/{{ $product->id }}">{{ $product->name }}</a>
