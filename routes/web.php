@@ -27,6 +27,8 @@ Route::get('products', 'ProductController@index')->name('products.index');
 Route::get('products/show/{product}', 'ProductController@show')->name('products.show');
 Auth::routes();
 
+Route::get('sewpad', 'SewpadController@index')->name('sewpad');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard',  'DashboardController@index');

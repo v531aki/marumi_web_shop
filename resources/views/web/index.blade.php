@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="main-wrapper col-md-7">
+<div class="col-md-7">
     <div class="info-wrapper">
         <h1>お知らせ</h1>
         <ul class="paling">
