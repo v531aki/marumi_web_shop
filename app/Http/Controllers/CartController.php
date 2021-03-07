@@ -27,7 +27,7 @@ class CartController extends Controller
             $total += $c->qty * $c->price;
         }
 
-        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
+        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
                             ->join('products', 'rankings.product_id', '=', 'products.id')->get();
 
         $categories = Category::all();
@@ -51,6 +51,7 @@ class CartController extends Controller
                 'qty' => $request->qty, 
                 'price' => $request->price, 
                 'weight' => $request->weight, 
+                'options' => ['img'=> $request->img]
             ] 
         );
 

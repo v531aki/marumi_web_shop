@@ -21,7 +21,7 @@
                 <th scope="row">{{ $special_feature->id }}</td>
                 <th scope="row">{{ $special_feature->name }}</td>
                 <th scope="row">{{ $special_feature->description }}</td>
-                <th scope="row">{{ $special_feature->img }}</td>
+                <th scope="row" class="products-img"><img src="{{ $special_feature->img }}" alt="画像"></td>
                 <th scope="row">{{ $special_feature->start_at }}</td>
                 <th scope="row">{{ $special_feature->finished_at }}</td>
                 <td>

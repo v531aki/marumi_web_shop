@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\Ranking;
-use APP\Product_img;
+use App\Product_img;
 
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -46,7 +46,7 @@ class ProductController extends Controller
             $sort_type = null;
         }
 
-        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
+        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
                             ->join('products', 'rankings.product_id', '=', 'products.id')->get();
 
         $categories = Category::all();
@@ -75,7 +75,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
+        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
                             ->join('products', 'rankings.product_id', '=', 'products.id')->get();
 
         $img = Product_img::select('img_name')->where('product_id', $product->id)->get()->toArray();
@@ -96,7 +96,7 @@ class ProductController extends Controller
             $total = 0;
         }
 
-        return view('products.show', compact('product', 'categories', 'major_category_names', 'rankings', 'carts', 'total', 'img'));
+        return view('products.show', compact('product', 'categories', 'major_category_names', 'rankings', 'carts', 'total', 'imgs'));
     }
 
 }

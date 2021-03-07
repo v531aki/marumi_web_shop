@@ -7,6 +7,7 @@ use App\Special_feature;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class Special_featureController extends Controller
 {
@@ -44,11 +45,16 @@ class Special_featureController extends Controller
     {
         $special_feature->name = $request->name;
         $special_feature->description = $request->description;
-        $special_feature->img = $request->img;
         $special_feature->start_at = $request->start_at;
         $special_feature->finished_at = $request->finished_at;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+
+            $path = Storage::disk('s3')->put('/', $image, 'public'); // Ｓ３にアップ
+            $special_feature->img = Storage::disk('s3')->url($path);
+        }
         $special_feature->update();
-        
+
         return redirect()->route('dashboard.special_features');
     }
 

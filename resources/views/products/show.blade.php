@@ -8,15 +8,15 @@
     <div class="products-show-slider">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"  data-interval="10000">
             <div class="carousel-inner">
-                @for($i = 0; $i < count($img); $i++)
+                @for($i = 0; $i < count($imgs); $i++)
+                @if($i == 0)
                 <div class="carousel-item active">
-                    @if($i == 0)
-                    <img class="d-block w-100" src="{{ $img[$i] }}" alt="First slide">
-                    @else
-                    <img class="d-block w-100" src="{{ $img[$i] }}" alt="First slide">
-                    @endif
+                @else
+                <div class="carousel-item">
+                @endif
+                    <img class="d-block w-100" src="{{ $imgs[$i] }}" alt="First slide">
                 </div>
-                @endforeach
+                @endfor
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,15 +30,15 @@
     </div>
     <div class="slider-list">
         <ol class="row">
-            @for($i = 0; $i < count($img); $i++)
+            @for($i = 0; $i < count($imgs); $i++)
                 @if($i == 0)
                 <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="col-md-2 active">
                 @else
                 <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="col-md-2">
                 @endif
-                    <p class="carousel-img"><img src="{{ $img[$i] }}" alt="画像"></p>
+                    <p class="carousel-img"><img src="{{ $imgs[$i] }}" alt="画像"></p>
                 </li>
-            @endforeach
+            @endfor
         </ol>
     </div>
     <div class="products-description">
@@ -65,6 +65,7 @@
             <input type="hidden" name="id" value="{{ $product->id }}">
             <input type="hidden" name="name" value="{{ $product->name }}">
             <input type="hidden" name="price" value="{{ $product->price }}">
+            <input type="hidden" name="img" value="{{ $product->top_img }}">
             <div class="form-group row">
                 <label for="quantity" class="col-md-2">数量：</label>
                 <div class="col-sm-10">

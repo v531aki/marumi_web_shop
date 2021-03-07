@@ -18,7 +18,7 @@
         <div class="row cart-item">
             <div class="col-md-3">
                 <p class="cart-img">
-                    <img src="{{ asset('img/dummy.jpg') }}" alt="写真">
+                    <img src="{{ $product->options->img }}" alt="写真">
                 </p>
             </div>
             <div class="col-md-9">
@@ -47,7 +47,7 @@
                     <p class="rank">| {{ $ranking->id }}位 |</p>
                     <p class="rank-img">
                         <a href="/products/show/{{ $ranking->product_id }}">
-                            <img src="{{ asset('img/dummy.jpg') }}" alt="写真">
+                            <img src="{{ $ranking->top_img }}" alt="写真">
                         </a>
                     </p>
                 </div>

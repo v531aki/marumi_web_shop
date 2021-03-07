@@ -10,8 +10,8 @@
             <li><i class="fas fa-ambulance"></i> サイトの不具合を修正しました。ご不便おかけして申し訳ありません！</li>
         </ul>
     </div>
+    <hr>
     <div class="feature-wrapper">
-        <hr>
         <h1>特集一覧</h1>
         <div id="carouselExampleIndicators" class="carousel slide main-slider" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -31,7 +31,7 @@
                     <div class="carousel-item">
                     @endif
                         <a href="{{ route('products.index', ['special_feature_id' => $special_feature->id, 'special_feature_name' => $special_feature->name]) }}">
-                            <img class="d-block w-100" src="https://marumiimgbucket.s3-ap-northeast-1.amazonaws.com/GdVFaplIDMIwC5lUv6wP9npJFcvBaWjmemH61cXe.jpg" alt="First slide">
+                            <img class="d-block w-100" src="{{ $special_feature->img }}" alt="First slide">
                         </a>
                         <div class="carousel-caption d-none d-md-block slider-rem">
                             <h5>{{ $special_feature->name }}</h5>
@@ -50,8 +50,8 @@
             </a>
         </div>
     </div>
+    <hr>
     <div class="row products-wrapper">
-        <hr>
         <h1 class="col-md-12">おすすめ商品</h1>
         <div class="col-md-4 item">
             <p class="products-img">
@@ -76,41 +76,24 @@
         </div>
         <a class="text-right" href="#">もっと探す</a>
     </div>
+    <hr>
     <div class="news-wrapper">
-        <div class="row newprogucts-wrapper">
+        <div class="row newproducts-wrapper">
             <hr>
             <h1 class="col-md-12">新商品</h1>
+            @foreach($products as $product)
             <div class="col-md-3 item">
                 <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
+                    <img src="{{ $product->top_img }}">
                 </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
+                <p>{{ $product->name }}</p>
+                <p class="text-right">{{ $product->price }}円</p>
             </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
-            <div class="col-md-3 item">
-                <p class="products-img">
-                    <img src="{{ asset('img/dummy.jpg')}}">
-                </p>
-                <p>はりねずみとキノコ★綿麻プリント生地５色★110cm巾×10cm単位</p>
-                <p class="text-right">560円</p>
-            </div>
+            @endforeach
             <a class="text-right" href="#">もっと探す</a>
         </div>
     </div>
+    <hr>
     <div class="news-wrapper">
         <div class="row newprogucts-wrapper">
             <hr>

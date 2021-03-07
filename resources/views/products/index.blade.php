@@ -11,8 +11,8 @@
             <h1>商品一覧{{$products_count}}件</h1>
         @endif
     </div>
+    <hr>
     <div class="row products-wrapper">
-        <hr>
         @foreach($products as $product)
         <div class="col-md-3 item">
             <p class="products-img">

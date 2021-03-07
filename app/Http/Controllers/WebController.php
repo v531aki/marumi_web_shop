@@ -15,7 +15,8 @@ class WebController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::select('name', 'price', 'top_img')->orderBy('updated_at', 'asc')->take(4)->get();
+
         $categories = Category::all();
         
         $major_category_names = Category::pluck('major_category_name')->unique();
@@ -24,9 +25,9 @@ class WebController extends Controller
                                             ->where('finished_at', '>', NOW())
                                             ->get();
         
-        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name', 'products.price')
+        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
                             ->join('products', 'rankings.product_id', '=', 'products.id')->get();
-        
+                
         if( Auth::check() ){
             $carts = Cart::instance(Auth::user()->id)->content();
             $total = 0;
