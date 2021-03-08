@@ -65,21 +65,39 @@ class SewpadController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\sowpad  $sowpad
+     * @param  \App\sewpad  $sewpad
      * @return \Illuminate\Http\Response
      */
-    public function show(sowpad $sowpad)
+    public function show(sewpad $sewpad)
     {
-        //
+        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
+                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
+
+        $categories = Category::all();
+        $major_category_names = Category::pluck('major_category_name')->unique();
+
+        if( Auth::check() ){
+            $carts = Cart::instance(Auth::user()->id)->content();
+            $total = 0;
+
+            foreach($carts as $c){
+                $total += $c->qty * $c->price;
+            }
+        }else{
+            $carts = [];
+            $total = 0;
+        }
+
+        return view('sewpad.show', compact('categories', 'major_category_names', 'rankings', 'carts', 'total'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\sowpad  $sowpad
+     * @param  \App\sewpad  $sewpad
      * @return \Illuminate\Http\Response
      */
-    public function edit(sowpad $sowpad)
+    public function edit(sewpad $sewpad)
     {
         //
     }
@@ -88,10 +106,10 @@ class SewpadController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\sowpad  $sowpad
+     * @param  \App\sewpad  $sewpad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, sowpad $sowpad)
+    public function update(Request $request, sewpad $sewpad)
     {
         //
     }
@@ -99,10 +117,10 @@ class SewpadController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\sowpad  $sowpad
+     * @param  \App\sewpad  $sewpad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(sowpad $sowpad)
+    public function destroy(sewpad $sewpad)
     {
         //
     }
