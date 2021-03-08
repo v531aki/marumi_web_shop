@@ -16,7 +16,7 @@
                 <img src="{{ asset('img/dummy.jpg') }}" alt="画像">
             </div>
             <div class="col-mb-10 description">
-                <h3>涼しげなポロシャツ</h3>
+                <h3><a href="{{ route('sewpad.show') }}">涼しげなポロシャツ</a></h3>
                 <p>初めてのお裁縫でポロシャツ作りに挑戦してみました！</p>
             </div>
         </div>

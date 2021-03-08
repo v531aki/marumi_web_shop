@@ -28,7 +28,7 @@ Route::get('products/show/{product}', 'ProductController@show')->name('products.
 Auth::routes();
 
 Route::get('sewpad', 'SewpadController@index')->name('sewpad');
-Route::get('sewpad/show', 'SewpadController@show');
+Route::get('sewpad/show', 'SewpadController@show')->name('sewpad.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
