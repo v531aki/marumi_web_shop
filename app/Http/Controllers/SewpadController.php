@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\DB;
 
 class SewpadController extends Controller
 {
+    protected $common;
+
+    public function __construct(CommonController $common)
+    {
+        $this->common = $common;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,24 +27,9 @@ class SewpadController extends Controller
      */
     public function index()
     {
-        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
-                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
-
-        $categories = Category::all();
-        $major_category_names = Category::pluck('major_category_name')->unique();
-
-        if( Auth::check() ){
-            $carts = Cart::instance(Auth::user()->id)->content();
-            $total = 0;
-
-            foreach($carts as $c){
-                $total += $c->qty * $c->price;
-            }
-        }else{
-            $carts = [];
-            $total = 0;
-        }
-        return view('sewpad.index',compact('categories', 'major_category_names', 'products_count', 'rankings', 'carts', 'total'));
+        $sidebar = $this->common->sidebar();
+        
+        return view('sewpad.index',compact('sidebar'));
     }
 
     /**
@@ -70,25 +61,9 @@ class SewpadController extends Controller
      */
     public function show(sewpad $sewpad)
     {
-        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
-                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
+        $sidebar = $this->common->sidebar();
 
-        $categories = Category::all();
-        $major_category_names = Category::pluck('major_category_name')->unique();
-
-        if( Auth::check() ){
-            $carts = Cart::instance(Auth::user()->id)->content();
-            $total = 0;
-
-            foreach($carts as $c){
-                $total += $c->qty * $c->price;
-            }
-        }else{
-            $carts = [];
-            $total = 0;
-        }
-
-        return view('sewpad.show', compact('categories', 'major_category_names', 'rankings', 'carts', 'total'));
+        return view('sewpad.show', compact('sidebar'));
     }
 
     /**

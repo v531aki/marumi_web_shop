@@ -21,7 +21,7 @@
         <hr>
 
         <div class="row">
-            @foreach ($carts as $product)
+            @foreach ($sidebar['carts'] as $product)
             <div class="col-md-2 mt-2">
                 <a href="{{route('products.show', $product->id)}}">
                     <img src="{{ $product->options->img }}" class="img-fuild w-100">
@@ -47,7 +47,7 @@
                     <h2>合計</h2>
                 </div>
                 <div class="col-6">
-                    <h2>￥{{$total}}</h2>
+                    <h2>￥{{$sidebar['total']}}</h2>
                 </div>
                 <div class="col-12 d-flex justify-content-end">
                     表示価格は税込みです

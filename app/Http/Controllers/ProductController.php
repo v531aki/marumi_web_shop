@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    protected $common;
+
+    public function __construct(CommonController $common)
+    {
+        $this->common = $common;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,25 +53,9 @@ class ProductController extends Controller
             $sort_type = null;
         }
 
-        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
-                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
+        $sidebar = $this->common->sidebar();
 
-        $categories = Category::all();
-        $major_category_names = Category::pluck('major_category_name')->unique();
-
-        if( Auth::check() ){
-            $carts = Cart::instance(Auth::user()->id)->content();
-            $total = 0;
-
-            foreach($carts as $c){
-                $total += $c->qty * $c->price;
-            }
-        }else{
-            $carts = [];
-            $total = 0;
-        }
-
-        return view('products.index', compact('products','categories', 'sort_type', 'major_category_names', 'products_count', 'rankings', 'carts', 'total'));
+        return view('products.index', compact('products', 'sort_type', 'products_count', 'sidebar'));
     }
 
     /**
@@ -75,28 +66,13 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
-                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
-
         $img = Product_img::select('img_name')->where('product_id', $product->id)->get()->toArray();
         foreach($img as $i){$imgs[] = $i['img_name'];}
 
-        $categories = Category::all();
-        $major_category_names = Category::pluck('major_category_name')->unique();
+        $sidebar = $this->common->sidebar();
 
-        if( Auth::check() ){
-            $carts = Cart::instance(Auth::user()->id)->content();
-            $total = 0;
 
-            foreach($carts as $c){
-                $total += $c->qty * $c->price;
-            }
-        }else{
-            $carts = [];
-            $total = 0;
-        }
-
-        return view('products.show', compact('product', 'categories', 'major_category_names', 'rankings', 'carts', 'total', 'imgs'));
+        return view('products.show', compact('product', 'sidebar', 'imgs'));
     }
 
 }

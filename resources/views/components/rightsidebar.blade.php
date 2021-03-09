@@ -2,8 +2,8 @@
     <div class="cart-view paling">
         <div class="cart-count-autor">
             <div class="cart-count-inner">
-            @if(count($carts) != 0)
-                <p>商品数：{{ count($carts) }}種 合計：{{ $total }}円</p>
+            @if(count($sidebar['carts']) != 0)
+                <p>商品数：{{ count($sidebar['carts']) }}種 合計：{{ $sidebar['total'] }}円</p>
             @else
                 <p>追加済みの商品はありません。</p>
             @endif
@@ -11,7 +11,7 @@
         </div>
         <?php $i=0 ?>
         <?php $total=0 ?>
-        @foreach($carts as $product)
+        @foreach($sidebar['carts'] as $product)
         <hr>
         <?php $i++ ?>
         @if($i <= 3) 
@@ -40,7 +40,7 @@
         <div class="ranking-title">
             <p>売れ筋ランキング</p>
         </div>
-        @foreach($rankings as $ranking)
+        @foreach($sidebar['rankings'] as $ranking)
         <hr>
             <div class="ranking-item">
                 <div class="col-md-12">

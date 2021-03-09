@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
+    protected $common;
+
+    public function __construct(CommonController $common)
+    {
+        $this->common = $common;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,20 +27,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        $carts = Cart::instance(Auth::user()->id)->content();
-        $total = 0;
-
-        foreach($carts as $c){
-            $total += $c->qty * $c->price;
-        }
-
-        $rankings = Ranking::select('rankings.id as id','products.id as product_id', 'products.name','products.top_img', 'products.price')
-                            ->join('products', 'rankings.product_id', '=', 'products.id')->get();
-
-        $categories = Category::all();
-        $major_category_names = Category::pluck('major_category_name')->unique();
-
-        return view('carts.index', compact('cart', 'total', 'categories', 'major_category_names', 'rankings', 'carts'));
+        $sidebar = $this->common->sidebar();
+        return view('carts.index', compact('sidebar'));
     }
 
     /**

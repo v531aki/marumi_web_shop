@@ -1,8 +1,8 @@
 <div class="container">
-    @foreach ($major_category_names as $major_category_name)
+    @foreach ($sidebar['major_category_names'] as $major_category_name)
     <div class="row paling">
         <h2>{{ $major_category_name }}</h2>
-        @foreach ($categories as $category)
+        @foreach ($sidebar['categories'] as $category)
             @if ($category->major_category_name === $major_category_name)
                 <label class="col-12">
                     <a href="{{ route('products.index', ['category' => $category->id]) }}">
