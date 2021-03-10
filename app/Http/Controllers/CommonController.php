@@ -33,7 +33,8 @@ class CommonController
             }
         }
 
-        $common['dates'] = $this->getCalendarDates(date('Y'),date('m'));
+        $common['dates1'] = $this->getCalendarDates(date('Y'),date('m'));
+        $common['dates2'] = $this->getCalendarDates(date('Y', strtotime('+1 month')), date('m', strtotime('+1 month')));
 
         return $common;
     }

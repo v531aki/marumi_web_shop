@@ -46,6 +46,11 @@ class ProductController extends Controller
                                 ->where('special_feature', 'like', '%'.$request->special_feature_id.'%')->paginate(16);
 
             $sort_type = $request->special_feature_name;
+        } elseif($request->new_products){
+            $products_count = Product::all()->count();
+            $products = Product::select('name', 'price', 'top_img')->orderBy('updated_at', 'desc')->paginate(16);
+
+            $sort_type = "新しい順";
         } else {
             $products_count = Product::all()->count();
             $products = Product::select('products.id as id', 'name', 'price', 'top_img')

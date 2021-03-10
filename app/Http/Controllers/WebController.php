@@ -20,7 +20,7 @@ class WebController extends Controller
     {
         $sidebar = $this->common->sidebar();
 
-        $products = Product::select('name', 'price', 'top_img')->orderBy('updated_at', 'asc')->take(4)->get();
+        $products = Product::select('name', 'price', 'top_img')->orderBy('updated_at', 'desc')->take(4)->get();
         
         $special_features = Special_feature::where('start_at', '<=', NOW())
                                             ->where('finished_at', '>', NOW())

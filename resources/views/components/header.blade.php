@@ -21,10 +21,10 @@
 <div class="container-fluid">
     <div class="row">
         <ul class="top-wrapper col-md-12 col-lg-10 offset-lg-1" id="nav">
+            <li class="col-md-2"><a href="{{ url('/') }}">店舗TOP</a></li>
             <li class="col-md-2"><a href="{{ url('/products') }}">生地一覧</a></li>
             <li class="col-md-2"><a href="{{ url('/sewpad') }}">掲示板</a></li>
             <li class="col-md-2"><a href="#">まるみ</a></li>
-            <li class="col-md-2"></li>
             @guest
                 <li class="col-md-2">
                     <a href="{{ route('login') }}">ログイン</a>
