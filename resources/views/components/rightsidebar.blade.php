@@ -45,7 +45,7 @@
             <div class="ranking-item">
                 <div class="col-md-12">
                     <p class="rank">| {{ $ranking->id }}位 |</p>
-                    <p class="rank-img">
+                    <p class="rank-img text-center">
                         <a href="/products/show/{{ $ranking->product_id }}">
                             <img src="{{ $ranking->top_img }}" alt="写真">
                         </a>

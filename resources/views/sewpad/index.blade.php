@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <h1>Sewpad</h1>
-                <p class="text-right"><a href="#">＋投稿する</a></p>
+                <p class="text-right"><a href="/sewpad/create">＋投稿する</a></p>
             </div>
         </div>
         @for($i = 0; $i < 10; $i++)

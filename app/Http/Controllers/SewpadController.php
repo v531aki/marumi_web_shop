@@ -39,7 +39,9 @@ class SewpadController extends Controller
      */
     public function create()
     {
-        //
+        $sidebar = $this->common->sidebar();
+        
+        return view('sewpad.create',compact('sidebar'));
     }
 
     /**

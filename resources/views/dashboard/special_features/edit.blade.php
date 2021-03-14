@@ -19,7 +19,7 @@
             <label for="special_feature-img">写真選択</label>
             <img src="#" id="product-image-preview">
             <div class="d-flex flex-column ml-2">
-                <label for="product-image" class="btn samazon-submit-button">画像を選択</label>
+                <label for="product-image" class="btn marumi-submit-button">画像を選択</label>
                 <input type="file" name="image" id="product-image" onChange="handleImage(this.files)" style="display: none;">
             </div>
         </div>

@@ -29,6 +29,8 @@ Auth::routes();
 
 Route::get('sewpad', 'SewpadController@index')->name('sewpad');
 Route::get('sewpad/show', 'SewpadController@show')->name('sewpad.show');
+Route::get('sewpad/create', 'SewpadController@create')->name('sewpad.create'); //->middleware('auth')
+Route::post('sewpad', 'SewpadController@store')->name('sewpad.store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
