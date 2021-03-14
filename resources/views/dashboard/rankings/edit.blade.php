@@ -24,7 +24,7 @@
                     </div>
                     <textarea id="search-products" name="keyword" class="form-controll ml-2 w-50">{{$keyword}}</textarea>
                 </div>
-                <button type="submit" class="btn samazon-submit-button">検索</button>
+                <button type="submit" class="btn marumi-submit-button">検索</button>
             </form>
         </div>
         <div class="d-flex justify-content-between w-75 mt-4">
@@ -70,7 +70,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
-                <button type="submit" class="w-25 btn samazon-submit-button">更新</button>
+                <button type="submit" class="w-25 btn marumi-submit-button">更新</button>
             </div>
         </form>
     </div>

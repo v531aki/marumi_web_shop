@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://kit.fontawesome.com/1145831153.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
@@ -48,5 +48,10 @@
         @component('components.footer')
         @endcomponent
     </footer>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
 </html>

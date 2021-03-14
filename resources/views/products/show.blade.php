@@ -75,19 +75,19 @@
             <input type="hidden" name="weight" value="0">
             <div class="row">
                 <div class="col-7">
-                    <button type="submit" class="btn samazon-submit-button w-100">
+                    <button type="submit" class="btn marumi-submit-button w-100">
                         <i class="fas fa-shopping-cart"></i>
                         カートに追加
                     </button>
                 </div>
                 <div class="col-5">
                     @if(true)
-                    <a href="#" class="btn samazon-favorite-button text-favorite w-100">
+                    <a href="#" class="btn marumi-favorite-button text-favorite w-100">
                         <i class="fa fa-heart"></i>
                         お気に入り解除
                     </a>
                     @else
-                    <a href="#" class="btn samazon-favorite-button text-favorite w-100">
+                    <a href="#" class="btn marumi-favorite-button text-favorite w-100">
                         <i class="fa fa-heart"></i>
                         お気に入り
                     </a>

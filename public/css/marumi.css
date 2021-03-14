@@ -153,13 +153,13 @@ label {
   color: #191919;
 }
 
-.samazon-login-input {
+.marumi-login-input {
     border-radius: 2px;
     border: solid 1px #b2b2b2;
     background-color: #ffffff;
 }
 
-.samazon-check-label {
+.marumi-check-label {
     font-family: YuGo;
     font-size: 12px;
     font-weight: 500;
@@ -170,12 +170,12 @@ label {
     color: #000000;
 }
 
-.samazon-require-input-label {
+.marumi-require-input-label {
     border-radius: 1px;
     background-color: #e2001b;
 }
 
-.samazon-require-input-label-text {
+.marumi-require-input-label-text {
     font-family: YuGo;
     font-size: 14px;
     font-weight: 500;
@@ -186,7 +186,7 @@ label {
     color: #ffffff;
 }
 
-.samazon-submit-button {
+.marumi-submit-button {
     font-family: YuGo;
     font-size: 14px;
     font-weight: bold;
@@ -199,7 +199,7 @@ label {
     background-color: #669b7c;
 }
 
-.samazon-login-text {
+.marumi-login-text {
     font-family: YuGo;
     font-size: 14px;
     font-weight: bold;

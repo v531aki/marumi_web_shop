@@ -19,11 +19,41 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th class="text-center text-danger px-0 py-2">日</th>
-                @foreach (['月', '火', '水', '木', '金'] as $dayOfWeek)
-                <th class="text-center px-0 py-2">{{ $dayOfWeek }}</th>
-                @endforeach
-                <th class="text-center text-primary px-0 py-2">土</th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様ポイント　2倍ｄａｙ">
+                        日
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様ー綿・麻10％引ｄａｙ">
+                        月
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様ハギレ半額ｄａｙ">
+                        火
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様ー手芸小物・裏地・芯地10％引き">
+                        水
+                    </button>
+                </th>
+                <th class="bg-success text-center px-0 py-2">
+                    <button type="button" class="bg-success text-white" data-toggle="tooltip" data-placement="top" title="\会員様キルティング10％引き/ \無料講習会(10:00~)/">
+                        木
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様合繊地・レース地が値札よ10％引き！！">
+                        金
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様限定手作り品10％引">
+                        土
+                    </button>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -71,11 +101,41 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th class="text-center text-danger px-0 py-2">日</th>
-                @foreach (['月', '火', '水', '木', '金'] as $dayOfWeek)
-                <th class="text-center px-0 py-2">{{ $dayOfWeek }}</th>
-                @endforeach
-                <th class="text-center text-primary px-0 py-2">土</th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様ポイント　2倍ｄａｙ">
+                        日
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様ー綿・麻10％引ｄａｙ">
+                        月
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様ハギレ半額ｄａｙ">
+                        火
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様ー手芸小物・裏地・芯地10％引き">
+                        水
+                    </button>
+                </th>
+                <th class="bg-success text-center px-0 py-2">
+                    <button type="button" class="bg-success text-white" data-toggle="tooltip" data-placement="top" title="\会員様キルティング10％引き/ \無料講習会(10:00~)/">
+                        木
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様合繊地・レース地が値札よ10％引き！！">
+                        金
+                    </button>
+                </th>
+                <th class="bg-info text-center px-0 py-2">
+                    <button type="button" class="bg-info text-white" data-toggle="tooltip" data-placement="top" title="会員様限定手作り品10％引">
+                        土
+                    </button>
+                </th>
             </tr>
         </thead>
         <tbody>

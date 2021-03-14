@@ -87,9 +87,13 @@
                 @foreach($products as $product)
                 <div class="col-md-3 item">
                     <p class="products-img">
-                        <img src="{{ $product->top_img }}">
+                        <a href="products/show/{{ $product->id }}">
+                            <img src="{{ $product->top_img }}">
+                        </a>
                     </p>
-                    <p>{{ $product->name }}</p>
+                    <a href="products/show/{{ $product->id }}">
+                        <p>{{ $product->name }}</p>
+                    </a>
                     <p class="text-right">{{ $product->price }}円</p>
                 </div>
                 @endforeach

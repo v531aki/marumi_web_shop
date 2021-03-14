@@ -15,9 +15,9 @@
         {{ csrf_field() }}
         <div class="d-flex flex-column">
             <div class="d-flex flex-row">
-                <label for="product-import-csv" class="btn samazon-button mr-3">CSVファイルを選択</label>
+                <label for="product-import-csv" class="btn marumi-button mr-3">CSVファイルを選択</label>
                 <input type="file" name="csv" id="product-import-csv" style="display: none;" onChange="handleCSV(this.files)">
-                <button class="btn samazon-submit-button">一括登録</button>
+                <button class="btn marumi-submit-button">一括登録</button>
             </div>
             <small id="product-import-csv-filename"></small>
         </div>
@@ -25,8 +25,8 @@
 
     <div class="d-flex justify-content-between mt-3">
         <h4 class="d-flex align-self-center mt-1 mb-0">CSVファイルフォーマット</h4>
-        <a class="btn samazon-button" href="{{ asset('csv/products.csv') }}">雛形ファイルダウンロード</a>
-        <a class="btn samazon-button" href="/dashboard/categories">カテゴリーリストはこちら</a>
+        <a class="btn marumi-button" href="{{ asset('csv/products.csv') }}">雛形ファイルダウンロード</a>
+        <a class="btn marumi-button" href="/dashboard/categories">カテゴリーリストはこちら</a>
     </div>
 
     <hr>

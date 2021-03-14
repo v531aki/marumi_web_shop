@@ -37,7 +37,7 @@
             @endif
             <div class="d-flex flex-column ml-2">
                 <small class="mb-3">600px×600px推奨。<br>商品の魅力が伝わる画像をアップロードして下さい。</small>
-                <label for="product-image" class="btn samazon-submit-button">画像を選択</label>
+                <label for="product-image" class="btn marumi-submit-button">画像を選択</label>
                 <input type="file" name="image" id="product-image" onChange="handleImage(this.files)" style="display: none;">
             </div>
         </div>
@@ -85,7 +85,7 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-end">
-            <button type="submit" class="w-25 btn samazon-submit-button">更新</button>
+            <button type="submit" class="w-25 btn marumi-submit-button">更新</button>
         </div>
     </form>
 
