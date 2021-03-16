@@ -84,7 +84,6 @@ class ProductController extends Controller
         $product->stock = $request->input('stock');
         $product->special_feature = $request->input('special_feature');
         $product->restock = $request->input('restock');
-        $product->img = "test";
         $product->save();
         
         for($i = 0; $i < count($request->categories); $i++){
@@ -94,6 +93,21 @@ class ProductController extends Controller
             $category->save();
         }
 
+        
+        if($request->images != null){
+            foreach($request->images as $image){
+                if ($image != null) {
+
+                    $path = Storage::disk('s3')->put('/', $image, 'public'); // Ｓ３にアップ
+
+                    $product_img = new Product_img();
+                    $product_img->product_id = $product->id;
+                    $product_img->img_name = Storage::disk('s3')->url($path);
+
+                    $product_img->save();
+                }
+            }
+        }
         return redirect()->route('dashboard.products.index');
     }
 
@@ -141,19 +155,20 @@ class ProductController extends Controller
         
         // $image = Product_img::where('products_id', $product->id)->select('id')->get();
         // Product_img::destroy($image);
+        if($request->images != null){
+            foreach($request->images as $image){
+                if ($image != null) {
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
+                    $path = Storage::disk('s3')->put('/', $image, 'public'); // Ｓ３にアップ
 
-            $path = Storage::disk('s3')->put('/', $image, 'public'); // Ｓ３にアップ
+                    $product_img = new Product_img();
+                    $product_img->product_id = $product->id;
+                    $product_img->img_name = Storage::disk('s3')->url($path);
 
-            $product_img = new Product_img();
-            $product_img->product_id = $product->id;
-            $product_img->img_name = Storage::disk('s3')->url($path);
-
-            $product_img->save();
+                    $product_img->save();
+                }
+            }
         }
-        
 
         ProductCategory::where('products_id', $product->id)->select('id')->delete();
 

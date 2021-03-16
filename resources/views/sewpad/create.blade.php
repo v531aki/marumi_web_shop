@@ -36,8 +36,22 @@
                     <div class="form-group">
                         <label for="URL-title">参考にしたサイトのタイトル</label>
                         <input type="text" name="URL-title" id="URL-title" class="form-control">
+                    </div>
+                    <div class="form-group">
                         <label for="URL">参考にしたサイトのURL</label>
                         <input type="text" name="URL" id="URL" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="img">作品の写真</label>
+                        <img src="#" id="img-preview">
+                        <div class="d-flex flex-column ml-2">
+                            <label for="collection-img" class="btn marumi-submit-button">画像を選択</label>
+                            <input type="file" name="collection-img" id="collection-img" onChange="handleImage(this.files)" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">難しかった点・こだわった点</label>
+                        <input type="text" name="comment" id="comment" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-danger">更新</button>
                 </form>
@@ -45,4 +59,15 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $("#product-image").change(function() {
+        if (this.files && this.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $("#product-image-preview").attr("src", e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+</script>
 @endsection

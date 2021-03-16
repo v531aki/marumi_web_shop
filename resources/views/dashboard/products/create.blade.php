@@ -20,9 +20,13 @@
             <input type="text" name="moq" id="moq">
         </div>
         <div class="form-inline mt-4 mb-4 row">
-            <label for="product-image" class="col-2 d-flex justify-content-start">画像</label>
-            <img src="#" id="product-image-preview">
-            <input type="file" name="image" id="product-image">
+            <label class="col-2 d-flex justify-content-start">画像</label>
+            <div id="img-select" class="d-flex flex-column ml-2">
+                <small class="mb-3">600px×600px推奨。<br>商品の魅力が伝わる画像をアップロードして下さい。</small>
+                <label for="product-image0" id="img-loading-btn" class="btn marumi-submit-button">画像を選択</label>
+                <input type="file" name="images[0]" id="product-image0" onChange="handleImage(this.files)" style="display: none;">
+                <div id="target-tag"></div>
+            </div>
         </div>
         <div class="form-inline row">
             <label for="description">説明</label>
@@ -64,15 +68,23 @@
 </div>
 
 <script type="text/javascript">
-    $("#product-image").change(function() {
-        if (this.files && this.files[0]) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                $("#product-image-preview").attr("src", e.target.result);
-            }
-            reader.readAsDataURL(this.files[0]);
+    function handleImage(image) {
+        var i = document.getElementsByClassName("product-image-preview").length;
+        var preview = document.getElementById('img-select');
+        var label = document.getElementById('img-loading-btn');
+        var input = document.getElementById(`target-tag`);
+        i++;
+        
+        input.insertAdjacentHTML('beforebegin',`<input type="file" name="images[${i}]" id="product-image${i}" onChange="handleImage(this.files)" style="display: none;">`);
+        label.htmlFor = `product-image${i}`;
+
+        let reader = new FileReader();
+        reader.onload = function() {
+            preview.insertAdjacentHTML('beforebegin',`<img src="${reader.result}" id="product-image-preview${i}" class="product-image-preview">`);
         }
-    });
+        console.log(image);
+        reader.readAsDataURL(image[0]);
+    }
 </script>
 
 @endsection

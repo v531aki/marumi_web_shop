@@ -6,7 +6,7 @@
 
     <hr>
 
-    <form method="POST" action="/dashboard/products/{{ $product->id }}" class="mb-5" enctype="multipart/form-data">
+    <form method="POST" action="/dashboard/products/{{ $product->id }}" name="myForm" class="mb-5" enctype="multipart/form-data">
         {{ csrf_field() }}
         <input type="hidden" name="_method" value="PUT">
         <div class="form-inline mt-4 mb-4 row">
@@ -30,15 +30,11 @@
         </div>
         <div class="form-inline mt-4 mb-4 row">
             <label class="col-2 d-flex justify-content-start">画像</label>
-            @if ($product->image !== null)
-            <img src="{{ asset('storage/products/'.$product->image) }}" id="product-image-preview" class="img-fluid w-25">
-            @else
-            <img src="#" id="product-image-preview">
-            @endif
-            <div class="d-flex flex-column ml-2">
+            <div id="img-select" class="d-flex flex-column ml-2">
                 <small class="mb-3">600px×600px推奨。<br>商品の魅力が伝わる画像をアップロードして下さい。</small>
-                <label for="product-image" class="btn marumi-submit-button">画像を選択</label>
-                <input type="file" name="image" id="product-image" onChange="handleImage(this.files)" style="display: none;">
+                <label for="product-image0" id="img-loading-btn" class="btn marumi-submit-button">画像を選択</label>
+                <input type="file" name="images[0]" id="product-image0" onChange="handleImage(this.files)" style="display: none;">
+                <div id="target-tag"></div>
             </div>
         </div>
         <div class="form-inline mt-4 mb-4 row">
@@ -96,10 +92,18 @@
 
 <script type="text/javascript">
     function handleImage(image) {
+        var i = document.getElementsByClassName("product-image-preview").length;
+        var preview = document.getElementById('img-select');
+        var label = document.getElementById('img-loading-btn');
+        var input = document.getElementById(`target-tag`);
+        i++;
+        
+        input.insertAdjacentHTML('beforebegin',`<input type="file" name="images[${i}]" id="product-image${i}" onChange="handleImage(this.files)" style="display: none;">`);
+        label.htmlFor = `product-image${i}`;
+
         let reader = new FileReader();
         reader.onload = function() {
-            let imagePreview = document.getElementById("product-image-preview");
-            imagePreview.src = reader.result;
+            preview.insertAdjacentHTML('beforebegin',`<img src="${reader.result}" id="product-image-preview${i}" class="product-image-preview">`);
         }
         console.log(image);
         reader.readAsDataURL(image[0]);
