@@ -32,6 +32,9 @@ Route::get('sewpad/show', 'SewpadController@show')->name('sewpad.show');
 Route::get('sewpad/create', 'SewpadController@create')->name('sewpad.create'); //->middleware('auth')
 Route::post('sewpad', 'SewpadController@store')->name('sewpad.store');
 
+Route::get('company', 'MarumiController@index');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard',  'DashboardController@index');

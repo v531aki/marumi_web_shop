@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
+
 <h1>商品管理</h1>
 <form method="GET" action="{{ route('dashboard.products.index')}}" class="form-inline">
     並び替え
@@ -14,7 +15,7 @@
         @endforeach
     </select>
 </form>
-<div class="w-75 mt-2">
+<div class="">
     <div class="w-75">
         <form method="GET" action="{{ route('dashboard.products.index') }}">
             <div class="d-flex flex-inline form-group">
@@ -27,7 +28,7 @@
         </form>
     </div>
 
-    <div class="d-flex justify-content-between w-75 mt-4">
+    <div class="d-flex justify-content-between">
         <h3>合計{{$total_count}}件</h3>
 
         <a href="{{ route('dashboard.products.create') }}" class="btn marumi-submit-button">+ 新規作成</a>

@@ -10,7 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://kit.fontawesome.com/1145831153.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,27 +19,24 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/marumi.css')}}" rel="stylesheet">
-
-    <script src="https://kit.fontawesome.com/3723f06c66.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/marumi.css') }}" rel="stylesheet">
 </head>
 <body>
     <header>
-        @component('components.dashboard.header')
+        @component('components.header')
         @endcomponent
     </header>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-2">
-                @component('components.dashboard.sidebar')
-                @endcomponent
+        <main class="row">
+            <div class="col-md-12 col-lg-10 offset-lg-1">
+                @yield('content')
             </div>
-            <div class="col-10">
-                <main>
-                    @yield('content')
-                </main>
-            </div>
-        </div>
+        </main>
     </div>
+    <footer>
+        @component('components.footer')
+        @endcomponent
+    </footer>
 </body>
 </html>
