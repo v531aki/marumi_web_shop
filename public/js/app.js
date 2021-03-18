@@ -65995,33 +65995,46 @@ var Example = /*#__PURE__*/function (_Component) {
       return Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
     }
   }, {
-    key: "hello",
-    value: function hello() {
-      if (this.state.currentPosition > 100) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u3053\u3093\u306B\u3061\u306F");
-      }
+    key: "fadeInBottom",
+    value: function fadeInBottom() {
+      return this.state.currentPosition > 100 ? "sub-title float-left mt-5 fade-in-bottom" : "d-none";
+    }
+  }, {
+    key: "fadeInLeft",
+    value: function fadeInLeft() {
+      return this.state.currentPosition > 100 ? "sub-title float-left mt-5 fade-in-left" : "d-none";
     }
   }, {
     key: "render",
     value: function render() {
-      var Hello = this.hello();
+      var FadeInBottom = this.fadeInBottom();
+      var FadeInLeft = this.fadeInLeft();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
+        className: "container-fluid p-0"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row justify-content-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12 d-flex align-items-center htcs-flex-container htcs-flex-container-height top-img"
+        className: "col-12 p-0 d-flex align-items-center htcs-flex-container htcs-flex-container-height top-img"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "ml-2 title"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "\u751F\u5730\u30B7\u30E7\u30C3\u30D7\u30DE\u30EB\u30DF"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u751F\u5730\uFF06\u30CF\u30AE\u30EC\uFF06\u30CF\u30F3\u30C9\u30E1\u30A4\u30C9"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "title"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "fade-in-bottom"
+      }, "\u751F\u5730\u30B7\u30E7\u30C3\u30D7\u30DE\u30EB\u30DF"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "fade-in-bottom"
+      }, "\u751F\u5730\uFF06\u30CF\u30AE\u30EC\uFF06\u30CF\u30F3\u30C9\u30E1\u30A4\u30C9")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row",
         style: {
           height: "5000px"
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Scroll Top: ", this.state.currentPosition), Hello, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "offset-1 col-11"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: FadeInLeft
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u3054\u3042\u3044\u3055\u3064"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Scroll Top: ", this.state.currentPosition), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.currentPosition > 100 ? "fade-in-bottom" : "d-none"
       }, "\u3053\u3093\u3070\u3093\u306F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "fade-in-bottom"
-      }, "\u304A\u306F\u3088\u3046"))));
+      }, "\u304A\u306F\u3088\u3046")));
     }
   }]);
 

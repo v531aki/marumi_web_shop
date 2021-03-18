@@ -31,43 +31,49 @@ export default class Example extends Component {
             document.body.scrollTop);
     }
 
-    hello() {
-        if(this.state.currentPosition > 100){
-            return (
-                <div>
-                    こんにちは
-                </div>
-            )
-        }
+    fadeInBottom() {
+        return (
+            this.state.currentPosition > 100 ? "sub-title float-left mt-5 fade-in-bottom" : "d-none"
+        )
+    }
+    fadeInLeft() {
+        return (
+            this.state.currentPosition > 100 ? "sub-title float-left mt-5 fade-in-left" : "d-none"
+        )
     }
 
     render() {
-        const Hello = this.hello()
+        const FadeInBottom = this.fadeInBottom()
+        const FadeInLeft = this.fadeInLeft()
         return (
-            <div className="container">
+            <div className="container-fluid p-0">
                 <div className="row justify-content-center">
-                    <div className="col-12 d-flex align-items-center htcs-flex-container htcs-flex-container-height top-img">
-                        <div className="ml-2 title">
-                            <h1>生地ショップマルミ</h1>
-                            <p>生地＆ハギレ＆ハンドメイド</p>
+                    <div className="col-12 p-0 d-flex align-items-center htcs-flex-container htcs-flex-container-height top-img">
+                        <div className="title">
+                            <h1 className="fade-in-bottom">生地ショップマルミ</h1>
+                            <p className="fade-in-bottom">生地＆ハギレ＆ハンドメイド</p>
                         </div>
                     </div>
-                    <div
-                        style={{
-                            height: "5000px"
-                        }}
+                </div>
+                <div className="row"
+                    style={{
+                        height: "5000px"
+                    }}
+                >
+                    <div className="offset-1 col-11">
+                        <div className={FadeInLeft}>
+                            <p>ごあいさつ</p>
+                        </div>
+                    </div>
+                    <p>Scroll Top: {this.state.currentPosition}</p>
+                    <div className={
+                        this.state.currentPosition > 100 ? "fade-in-bottom" : "d-none"
+                        }
                     >
-                        <p>Scroll Top: {this.state.currentPosition}</p>
-                        {Hello}
-                        <div className={
-                            this.state.currentPosition > 100 ? "fade-in-bottom" : "d-none"
-                            }
-                        >
-                            こんばんは
-                        </div>
-                        <div className="fade-in-bottom"
-                        >おはよう</div>
+                        こんばんは
                     </div>
+                    <div className="fade-in-bottom"
+                    >おはよう</div>
                 </div>
             </div>
         );

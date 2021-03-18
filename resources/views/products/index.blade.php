@@ -15,13 +15,15 @@
     <div class="row products-wrapper">
         @foreach($products as $product)
         <div class="col-md-3 item">
-            <p class="products-img">
-                <a href="products/show/{{ $product->id }}">
-                    <img src="{{ $product->top_img }}">
-                </a>
-            </p>
-            <a href="products/show/{{ $product->id }}">{{ $product->name }}</a>
-            <p class="text-right">{{ $product->price }}円</p>
+            <div class="card mb-3">
+                <p class="products-img">
+                    <a href="products/show/{{ $product->id }}">
+                        <img src="{{ $product->top_img }}">
+                    </a>
+                </p>
+                <a href="products/show/{{ $product->id }}">{{ $product->name }}</a>
+                <p class="text-right">{{ $product->price }}円</p>
+            </div>
         </div>
         @endforeach
     </div>

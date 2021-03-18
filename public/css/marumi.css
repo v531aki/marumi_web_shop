@@ -321,16 +321,41 @@ label {
 
 /* company */
 .top-img{
-  height: 400px;
+  height: 600px;
   background-image: url("https://marumiimgbucket.s3-ap-northeast-1.amazonaws.com/Title.png");
   background-position: right bottom;
 }
 
 .title{
+  padding-left: 30px;
+  padding-top:100px;
   width: 100%;
-  height: 40%;
-  background: rgba(255, 255, 255, 0.8);
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
 
+.title h1{
+  font-size: 120px;
+  color: rgb(255, 254, 254);
+}
+
+.title p{
+  font-size: 40px;
+  color: rgb(255, 254, 254);
+}
+
+.sub-title{
+  height: 300px;
+  width: 300px;
+  background: #ff9d76;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-title p{
+  color: rgb(255, 254, 254);
+  font-size: 30px;
 }
 
 .fade-in-bottom {
@@ -340,10 +365,29 @@ label {
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
-@keyframes fadein-bottom {
+.fade-in-left{
+  opacity: 0;
+  animation-name: fadein-left;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein-bottom{
   0% {
      opacity: 0;
      transform: translateY(20px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateY(0);
+  }
+}
+
+@keyframes fadein-left {
+  0% {
+     opacity: 0;
+     transform: translateX(-50px);
   }
   100% {
      opacity: 1;
