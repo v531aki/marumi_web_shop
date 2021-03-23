@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="main-wrapper col-md-7">
+    @if (session('msg'))
+    <div class="mt-4 alert alert-warning" role="alert">
+        {{ (session('msg')) }}
+    </div>
+    @endif
+
     <div>
         <h2>商品名：{{ $product->name }}</h2>
     </div>
@@ -65,11 +71,12 @@
             <input type="hidden" name="id" value="{{ $product->id }}">
             <input type="hidden" name="name" value="{{ $product->name }}">
             <input type="hidden" name="price" value="{{ $product->price }}">
+            <input type="hidden" name="stock" value="{{ $product->stock }}">
             <input type="hidden" name="img" value="{{ $product->top_img }}">
             <div class="form-group row">
                 <label for="quantity" class="col-md-2">数量：</label>
                 <div class="col-sm-10">
-                    <input type="number" id="quantity" name="qty" min="1" max="{{ $product->stock }}" value="{{ $product->moq }}" class="form-control w-25">
+                    <input type="number" id="quantity" name="qty" min="{{ $product->moq }}" max="{{ $product->stock }}" value="{{ $product->moq }}" class="form-control w-25">
                 </div>
             </div>
             <input type="hidden" name="weight" value="0">

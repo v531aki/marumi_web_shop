@@ -39,30 +39,33 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        Cart::instance(Auth::user()->id)->add(
-            [
-                'id' => $request->id, 
-                'name' => $request->name, 
-                'qty' => $request->qty, 
-                'price' => $request->price, 
-                'weight' => $request->weight, 
-                'options' => ['img'=> $request->img]
-            ] 
-        );
+        $cart = Cart::instance(Auth::user()->id)->content();
 
-        return redirect()->route('products.show', $request->get('id'));
-    }
+        $flag = true;
+        foreach($cart as $c){
+            if($c->id == $request->id){
+                if($c->qty + $request->qty > $request->stock){
+                    $flag = false;
+                }
+            } 
+        }
+        if($flag){
+            Cart::instance(Auth::user()->id)->add(
+                [
+                    'id' => $request->id, 
+                    'name' => $request->name, 
+                    'qty' => $request->qty, 
+                    'price' => $request->price, 
+                    'weight' => $request->weight, 
+                    'options' => ['img'=> $request->img]
+                ] 
+            );
+            $msg = "カートに追加しました！";
+        }else{
+            $msg = "在庫数量を超過しています！";
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $cart = DB::table('shoppingcart')->where('instance', Auth::user()->id)->where('identifier', $count)->get();
-        return view('carts.show', compact('cart'));
+        return redirect()->route('products.show', $request->get('id'))->with('msg', $msg);
     }
 
     /**

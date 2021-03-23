@@ -65996,19 +65996,46 @@ var Example = /*#__PURE__*/function (_Component) {
     }
   }, {
     key: "fadeInBottom",
-    value: function fadeInBottom() {
-      return this.state.currentPosition > 100 ? "sub-title float-left mt-5 fade-in-bottom" : "d-none";
+    value: function fadeInBottom($position) {
+      var flag = "NO";
+
+      if (this.state.currentPosition > $position) {
+        flag = "YES";
+      }
+
+      return flag == "YES" ? "sub-title col-5 float-left fade-in-bottom" : "d-none";
     }
   }, {
     key: "fadeInLeft",
-    value: function fadeInLeft() {
-      return this.state.currentPosition > 100 ? "sub-title float-left mt-5 fade-in-left" : "d-none";
+    value: function fadeInLeft($position) {
+      var flag = "NO";
+
+      if (this.state.currentPosition > $position) {
+        flag = "YES";
+      }
+
+      return flag == "YES" ? "sub-title col-5 float-left fade-in-left" : "d-none";
+    }
+  }, {
+    key: "fadeInRight",
+    value: function fadeInRight($position) {
+      var flag = "NO";
+
+      if (this.state.currentPosition > $position) {
+        flag = "YES";
+      }
+
+      return flag == "YES" ? "sub-comment offset-2 col-5 float-right fade-in-right" : "d-none";
     }
   }, {
     key: "render",
     value: function render() {
-      var FadeInBottom = this.fadeInBottom();
-      var FadeInLeft = this.fadeInLeft();
+      var FadeInLeft = this.fadeInLeft(100);
+      var FadeInRight = this.fadeInRight(100);
+      var FadeInLeft1 = this.fadeInLeft(500);
+      var FadeInRight1 = this.fadeInRight(500);
+      var FadeInLeft2 = this.fadeInLeft(900);
+      var FadeInRight2 = this.fadeInRight(900);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-fluid p-0"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66024,17 +66051,35 @@ var Example = /*#__PURE__*/function (_Component) {
       }, "\u751F\u5730\uFF06\u30CF\u30AE\u30EC\uFF06\u30CF\u30F3\u30C9\u30E1\u30A4\u30C9")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row",
         style: {
-          height: "5000px"
+          height: "1500px"
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "offset-1 col-11"
+        className: "col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: FadeInLeft
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u3054\u3042\u3044\u3055\u3064"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Scroll Top: ", this.state.currentPosition), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: this.state.currentPosition > 100 ? "fade-in-bottom" : "d-none"
-      }, "\u3053\u3093\u3070\u3093\u306F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "fade-in-bottom"
-      }, "\u304A\u306F\u3088\u3046")));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u3054\u3042\u3044\u3055\u3064")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: FadeInRight
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u5F53\u5E97\u306F\u3001\u4EAC\u90FD\u5E9C\u306E\u4E80\u5CA1\u306B\u3042\u308B\u5C0F\u3055\u306A\u304A\u5E97\u3067\u3059\u3002\u5C0F\u3055\u306A\u304A\u5E97\u3067\u3059\u304C\u3001\u3044\u308D\u3093\u306A\u751F\u5730\u304C\u3001\u6240\u72ED\u3057\u3068\u305D\u308C\u306F\u305D\u308C\u306F\u6CA2\u5C71\u7F6E\u3044\u3066\u3042\u308A\u307E\u3059\u3002\u304A\u5024\u6BB5\u3082\u304B\u306A\u308A\u304A\u5B89\u304F\u63D0\u4F9B\u3057\u3066\u3044\u307E\u3059\u3002", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u751F\u5730\u304C\u304A\u597D\u304D\u306A\u65B9\u306B\u306F\u3001\u305C\u3072\u77E5\u3063\u3066\u3044\u305F\u3060\u304D\u305F\u3044\u304A\u5E97\u3067\u3059\u266A"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: FadeInLeft1
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u53D6\u308A\u6271\u3044\u88FD\u54C1")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: FadeInRight1
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u751F\u5730\u306E\u4ED6\u306B\u306F\u3001\u30CF\u30F3\u30C9\u30E1\u30A4\u30C9\u306E\u30A8\u30D7\u30ED\u30F3\u3084\u3001\u30C1\u30E5\u30CB\u30C3\u30AF\u3001\u30D0\u30C3\u30AF\u306A\u3069\u3082\u7F6E\u3044\u3066\u3044\u307E\u3059(\u5E97\u5185\u8CA9\u58F2\u306E\u307F)\u3002"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: FadeInLeft2
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u305D\u306E\u4ED6\u30B7\u30E7\u30C3\u30D4\u30F3\u30B0\u30B5\u30A4\u30C8")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: FadeInRight2
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u672C\u30B5\u30A4\u30C8\u306E\u307B\u304B\u3001\u4E0B\u8A18\u306E\u8CA9\u58F2\u30B5\u30A4\u30C8\u306B\u3066\u8CA9\u58F2\u3057\u3066\u304A\u308A\u307E\u3059\u3002", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u3054\u5229\u7528\u3057\u3084\u3059\u3044\u30B5\u30A4\u30C8\u306B\u3066\u304A\u8CB7\u3044\u6C42\u3081\u304F\u3060\u3055\u3044\u3002\uFF01", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u30FB", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.rakuten.co.jp/kiji-shop-marumi/"
+      }, "\u697D\u5929\u5E02\u5834"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u30FB", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://minne.com/@tocchan151"
+      }, "minnne"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u30FB", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.creema.jp/c/kijishop-marumi"
+      }, "Creema")))))));
     }
   }]);
 

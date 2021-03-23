@@ -31,20 +31,42 @@ export default class Example extends Component {
             document.body.scrollTop);
     }
 
-    fadeInBottom() {
+    fadeInBottom($position) {
+        var flag = "NO"
+        if (this.state.currentPosition > $position) {
+            flag = "YES"
+        }
         return (
-            this.state.currentPosition > 100 ? "sub-title float-left mt-5 fade-in-bottom" : "d-none"
+            flag == "YES" ? "sub-title col-5 float-left fade-in-bottom" : "d-none"
         )
     }
-    fadeInLeft() {
+    fadeInLeft($position) {
+        var flag = "NO"
+        if (this.state.currentPosition > $position){
+            flag = "YES"
+        } 
         return (
-            this.state.currentPosition > 100 ? "sub-title float-left mt-5 fade-in-left" : "d-none"
+            flag == "YES" ? "sub-title col-5 float-left fade-in-left" : "d-none"
+        )
+    }
+    fadeInRight($position) {
+        var flag = "NO"
+        if (this.state.currentPosition > $position){
+            flag = "YES"
+        }
+        return (
+            flag == "YES" ? "sub-comment offset-2 col-5 float-right fade-in-right" : "d-none"
         )
     }
 
     render() {
-        const FadeInBottom = this.fadeInBottom()
-        const FadeInLeft = this.fadeInLeft()
+        const FadeInLeft = this.fadeInLeft(100)
+        const FadeInRight = this.fadeInRight(100)
+        const FadeInLeft1 = this.fadeInLeft(500)
+        const FadeInRight1 = this.fadeInRight(500)
+        const FadeInLeft2 = this.fadeInLeft(900)
+        const FadeInRight2 = this.fadeInRight(900)
+
         return (
             <div className="container-fluid p-0">
                 <div className="row justify-content-center">
@@ -57,23 +79,50 @@ export default class Example extends Component {
                 </div>
                 <div className="row"
                     style={{
-                        height: "5000px"
+                        height: "1500px"
                     }}
                 >
-                    <div className="offset-1 col-11">
-                        <div className={FadeInLeft}>
-                            <p>ごあいさつ</p>
+                    <div className="col-12">
+                        <div className="row mt-5">    
+                            <div className={FadeInLeft}>
+                                <p>ごあいさつ</p>
+                            </div>
+                            <div className={FadeInRight}>
+                                <p>
+                                    当店は、京都府の亀岡にある小さなお店です。小さなお店ですが、いろんな生地が、所狭しとそれはそれは沢山置いてあります。お値段もかなりお安く提供しています。<br></br>
+                                    生地がお好きな方には、ぜひ知っていただきたいお店です♪
+                                </p>
+                            </div>
+                        </div>
+                        <div className="row mt-5">
+
+                                <div className={FadeInLeft1}>
+                                    <p>取り扱い製品</p>
+                                </div>
+                                <div className={FadeInRight1}>
+                                    <p>
+                                        生地の他には、ハンドメイドのエプロンや、チュニック、バックなども置いています(店内販売のみ)。
+                                    </p>
+                                </div>
+
+                        </div>
+                        <div className="row mt-5">
+
+                                <div className={FadeInLeft2}>
+                                    <p>その他ショッピングサイト</p>
+                                </div>
+                                <div className={FadeInRight2}>
+                                    <p>
+                                        本サイトのほか、下記の販売サイトにて販売しております。<br></br>
+                                        ご利用しやすいサイトにてお買い求めください。！<br></br>
+                                        ・<a href="https://www.rakuten.co.jp/kiji-shop-marumi/">楽天市場</a><br></br>
+                                        ・<a href="https://minne.com/@tocchan151">minnne</a><br></br>
+                                        ・<a href="https://www.creema.jp/c/kijishop-marumi">Creema</a>
+                                    </p>
+                                </div>
+
                         </div>
                     </div>
-                    <p>Scroll Top: {this.state.currentPosition}</p>
-                    <div className={
-                        this.state.currentPosition > 100 ? "fade-in-bottom" : "d-none"
-                        }
-                    >
-                        こんばんは
-                    </div>
-                    <div className="fade-in-bottom"
-                    >おはよう</div>
                 </div>
             </div>
         );

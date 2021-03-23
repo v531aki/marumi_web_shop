@@ -345,8 +345,8 @@ label {
 }
 
 .sub-title{
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   background: #ff9d76;
   display: flex;
   justify-content: center;
@@ -358,16 +358,23 @@ label {
   font-size: 30px;
 }
 
+.sub-comment{
+  height: 400px;
+  width: 600px;
+  background: rgba(180, 128, 49, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-comment p{
+  color: #404040;
+  font-size: 20px;
+}
+
 .fade-in-bottom {
   opacity: 0;
   animation-name: fadein-bottom;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-.fade-in-left{
-  opacity: 0;
-  animation-name: fadein-left;
   animation-duration: 1.5s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
@@ -383,6 +390,13 @@ label {
      transform: translateY(0);
   }
 }
+.fade-in-left{
+  opacity: 0;
+  animation-name: fadein-left;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
 
 @keyframes fadein-left {
   0% {
@@ -391,6 +405,25 @@ label {
   }
   100% {
      opacity: 1;
-     transform: translateY(0);
+     transform: translateX(20px);
+  }
+}
+
+.fade-in-right{
+  opacity: 0;
+  animation-name: fadein-right;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein-right {
+  0% {
+     opacity: 0;
+     transform: translateX(50px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateX(0);
   }
 }

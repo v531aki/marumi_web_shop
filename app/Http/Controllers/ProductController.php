@@ -75,9 +75,10 @@ class ProductController extends Controller
         foreach($img as $i){$imgs[] = $i['img_name'];}
 
         $sidebar = $this->common->sidebar();
+        $msg = null;
 
 
-        return view('products.show', compact('product', 'sidebar', 'imgs'));
+        return view('products.show', compact('product', 'sidebar', 'imgs', 'msg'));
     }
 
 }

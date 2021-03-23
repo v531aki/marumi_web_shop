@@ -24,7 +24,7 @@
             <li class="col-md-2"><a href="{{ url('/') }}">店舗TOP</a></li>
             <li class="col-md-2"><a href="{{ url('/products') }}">生地一覧</a></li>
             <li class="col-md-2"><a href="{{ url('/sewpad') }}">掲示板</a></li>
-            <li class="col-md-2"><a href="#">まるみ</a></li>
+            <li class="col-md-2"><a href="{{ url('/company') }}">まるみ</a></li>
             @guest
                 <li class="col-md-2">
                     <a href="{{ route('login') }}">ログイン</a>
